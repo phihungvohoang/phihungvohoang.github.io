@@ -62,8 +62,6 @@ $(document).ready(function () {
         let productHtml = `
           <div class="listPage__item--title">
               <p class="title__text">${subcategory.name}</p>
-              <input type="text" id="searchInput" placeholder="Search for items..." class="search-bar">
-
           </div>    
           <div class="listPage__item--listProduct">`;
         subcategory.products.forEach((product) => {
