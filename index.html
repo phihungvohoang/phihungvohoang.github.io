@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HotWheels Binh Duong</title>
+    <meta name="description" content="HazelShop Hunt and trade Hot Wheels" />
+    <meta name="author" content="Hazel Vo aka Hùng đẹp trai" />
+    <link type="text/css" rel="stylesheet" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/responsive.css" />
+    <link rel="icon" href="images/logo/logo.png" type="image/png" />
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+  </head>
+  <body>
+    <div class="fullWeb">
+      <div class="blockHeader">
+        <div class="blockHeader__wrap">
+          <a
+            href="https://www.facebook.com/izaass.anons/"
+            class="blockLogo"
+            target="_blank"
+          >
+            <div class="blockLogo__wrap">
+              <img
+                class="blockLogo__wrap--img"
+                src="images/logo/logo-light.png"
+                alt="logo"
+              />
+            </div>
+          </a>
+          <div class="blockMenu">
+            <div class="blockMenu__listCate">
+              <div class="blockMenu__listCate--item">
+                <div class="item__nameCate">
+                  <img class="item__nameCate--img" src="images/icon/car.png" />
+                  <p class="item__nameCate--text">Xe Basic</p>
+                  <img
+                    class="item__nameCate--menuDrop"
+                    src="images/icon/icMenuDrop.png"
+                  />
+                </div>
+                <div class="item__listChild">
+                  <button
+                    class="item__listChild--item active"
+                    onclick="selectTab(event, 'all-car')"
+                  >
+                    <div class="item__imgChild icLogi">
+                      <img
+                        class="item__imgChild--img"
+                        src="images/icon/hw.png"
+                      />
+                    </div>
+                    <p class="item__nameChild">Tất cả xe</p>
+                  </button>
+                  <button
+                    class="item__listChild--item"
+                    onclick="selectTab(event, 'hw-basic-70k')"
+                  >
+                    <div class="item__imgChild icLogi">
+                      <img
+                        class="item__imgChild--img"
+                        src="images/icon/hw.png"
+                      />
+                    </div>
+                    <p class="item__nameChild">Đồng giá 70K</p>
+                  </button>
+                  <button
+                    class="item__listChild--item"
+                    onclick="selectTab(event, 'hw-basic-80k')"
+                  >
+                    <div class="item__imgChild icRazer">
+                      <img
+                        class="item__imgChild--img"
+                        src="images/icon/hw.png"
+                      />
+                    </div>
+                    <p class="item__nameChild">Đồng giá 80K</p>
+                  </button>
+                  <button
+                    class="item__listChild--item"
+                    onclick="selectTab(event, 'hw-basic-100k')"
+                  >
+                    <div class="item__imgChild icRazer">
+                      <img
+                        class="item__imgChild--img"
+                        src="images/icon/hw.png"
+                      />
+                    </div>
+                    <p class="item__nameChild">Đồng giá 100K</p>
+                  </button>
+                </div>
+              </div>
+
+              <div class="blockMenu__listCate--item">
+                <div class="item__nameCate">
+                  <img
+                    class="item__nameCate--img"
+                    src="images/icon/icKeyboard.png"
+                  />
+                  <p class="item__nameCate--text">TH & $TH</p>
+                  <img
+                    class="item__nameCate--menuDrop"
+                    src="images/icon/icMenuDrop.png"
+                  />
+                </div>
+                <div class="item__listChild">
+                  <button
+                    class="item__listChild--item"
+                    onclick="selectTab(event, 't-hunt')"
+                  >
+                    <div class="item__imgChild icLogi">
+                      <img
+                        class="item__imgChild--img"
+                        src="images/icon/hw.webp"
+                      />
+                    </div>
+                    <p class="item__nameChild">Treasure Hunt</p>
+                  </button>
+                  <button
+                    class="item__listChild--item"
+                    onclick="selectTab(event, 'st-hunt')"
+                  >
+                    <div class="item__imgChild icRazer">
+                      <img
+                        class="item__imgChild--img"
+                        src="images/s-hunt.png"
+                      />
+                    </div>
+                    <p class="item__nameChild">Supper Treasure Hunt</p>
+                  </button>
+                </div>
+              </div>
+
+              <div class="blockMenu__listCate--item">
+                <div class="item__nameCate">
+                  <img
+                    class="item__nameCate--img"
+                    src="images/icon/icKeyboard.png"
+                  />
+                  <p class="item__nameCate--text">Khác</p>
+                  <img
+                    class="item__nameCate--menuDrop"
+                    src="images/icon/icMenuDrop.png"
+                  />
+                </div>
+                <div class="item__listChild">
+                  <button
+                    class="item__listChild--item"
+                    onclick="selectTab(event, 'loose-items')"
+                  >
+                    <div class="item__imgChild icLogi">
+                      <img
+                        class="item__imgChild--img"
+                        src="images/icon/icFix.png"
+                      />
+                    </div>
+                    <p class="item__nameChild">Xe loose</p>
+                  </button>
+                  <button
+                    class="item__listChild--item"
+                    onclick="selectTab(event, 'another-items')"
+                  >
+                    <div class="item__imgChild icLogi">
+                      <img
+                        class="item__imgChild--img"
+                        src="images/icon/icCopy.png"
+                      />
+                    </div>
+                    <p class="item__nameChild">Các loại khác</p>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="blockContent">
+        <div class="blockContent__wrapContent blockContainer">
+          <div class="blockContent__wrapContent--listPage">
+            <!-- HW Basic -->
+            <div id="all-car" class="listPage__item active">
+              <!-- Content will be loaded dynamically from JSON -->
+            </div>
+            <!-- HW Basic -->
+            <div id="hw-basic-70k" class="listPage__item">
+              <!-- Content will be loaded dynamically from JSON -->
+            </div>
+            <!-- HW Basic -->
+            <div id="hw-basic-80k" class="listPage__item">
+              <!-- Content will be loaded dynamically from JSON -->
+            </div>
+            <!-- HW Basic -->
+            <div id="hw-basic-100k" class="listPage__item">
+              <!-- Content will be loaded dynamically from JSON -->
+            </div>
+            <!-- rare-items -->
+            <div id="rare-items" class="listPage__item">
+              <!-- Content will be loaded dynamically from JSON -->
+            </div>
+            <!-- T-HUNT -->
+            <div id="t-hunt" class="listPage__item">
+              <!-- Content will be loaded dynamically from JSON -->
+            </div>
+            <!-- ST-HUNT -->
+            <div id="st-hunt" class="listPage__item">
+              <!-- Content will be loaded dynamically from JSON -->
+            </div>
+            <!-- Another car -->
+            <div id="loose-items" class="listPage__item">
+              <!-- Content will be loaded dynamically from JSON -->
+            </div>
+            <div id="another-items" class="listPage__item">
+              <!-- Content will be loaded dynamically from JSON -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="blockLoading">
+        <div class="blockLoading__load"></div>
+        <div class="blockLoading__text">Đang tải</div>
+      </div>
+
+      <div class="blockLoadWeb active">
+        <div class="blockLoadWeb__load">
+          <img
+            class="blockLoadWeb__load--logo"
+            src="images/logo/logo-light.png"
+          />
+        </div>
+        <div class="blockLoadWeb__progress"></div>
+        <div class="blockLoadWeb__progressBar"></div>
+        <div class="blockLoadWeb__intro">
+          <img class="intro__img" src="images/event/intro.webp" />
+          <div class="intro__overlay"></div>
+        </div>
+      </div>
+
+      <div class="blockChat">
+        <a
+          href="https://m.me/izaass.anons"
+          target="_blank"
+          class="blockChat__item"
+        >
+          <img class="blockChat__item--img" src="images/icon/icMess.svg" />
+        </a>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>

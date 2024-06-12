@@ -1,0 +1,1115 @@
+{
+  "categories": [
+    {
+      "id": "all-car",
+      "name": "HW Basic",
+      "subcategories": [
+        {
+          "id": "hw-basic-70k",
+          "name": "Đồng giá 70.000đ",
+          "products": [
+            {
+              "id": "basic-70k-1",
+              "name": "Hot Wheels Fast & Furious Ice Charger",
+              "description": "2024 New Casting - 1968 Dodge Charger",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-1.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-2",
+              "name": "2020 Hot Wheels HW Speed Graphics Blue ‘68 Dodge Dart",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-2.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-3-2",
+              "name": "'32 FORD",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/loose/loose-4.png",
+              "condition": "90% CARD NỨT, RÁCH"
+            },
+            {
+              "id": "basic-70k-3",
+              "name": "Mazda RX7 Police",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-3.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-4",
+              "name": "Retro Racers Mazda 787B Red",
+              "description": "2023 Hot Wheels #28",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-4.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-5",
+              "name": "'83 Chevy Silverado (Black)",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-5.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-6",
+              "name": "Mazda Repu",
+              "description": "147/250 HW Hot Trucks 4/10 Excellent HTF",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-6.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-7",
+              "name": "'73 Honda Civic Custom",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-7.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-8",
+              "name": "'60s Fiat 500D Modificado",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-8.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-9",
+              "name": "'Vespa 90 SS Super Sprint (1966)",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-9.png",
+              "condition": "100% New"
+            }
+          ]
+        },
+        {
+          "id": "hw-basic-80k",
+          "name": "Đồng giá 80.000đ",
+          "products": [
+            {
+              "id": "basic-80k-1",
+              "name": "Baja Hauler 33/250",
+              "description": "Hot Wheels - 2023 HW Haulers 3/5 ",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-1.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-2",
+              "name": "Baja Bone Shaker",
+              "description": "HW Art Cars 3/10 - Black/Purple - 2023",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-2.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-3",
+              "name": "Mazda RX-3 #156 (Orange) ",
+              "description": "2024 Hot Wheels Case H",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-3.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-4",
+              "name": "(red) Baja Blazers 157/250",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-4.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-5",
+              "name": "Volvo 240 drift wagon",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-5.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-6",
+              "name": "HI BEAM Pink",
+              "description": "2020 Hot Wheels Olympic Games Tokyo 2020",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-6.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-7",
+              "name": "HIROHATA MERC",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-7.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-8",
+              "name": "'52 CHEVY",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-8.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-9",
+              "name": "'89 MAZDA SAVANNA RX-7 FC35",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-9.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-10",
+              "name": "ASTON MARTIN VANTAGE GTE",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-10.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-11",
+              "name": "BMW M3 GT2",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-11.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-12",
+              "name": "MAILED IT",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-12.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-13",
+              "name": "'85 HONDA CITY TURBO II (GREEN)",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-13.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-14",
+              "name": "'85 HONDA CITY TURBO II (BLUE)",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-14.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-15",
+              "name": "'82 TOYOTA SUPRA",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-15.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-16",
+              "name": "PORSCHE 911 CARRERA RS 2.7",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-16.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-17",
+              "name": "PORSCHE 911 TURBO 3.6 (964)",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-17.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-18",
+              "name": "'84 MUSTANG SVO",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-18.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-19",
+              "name": "'88 HONDA CR-X (GRAY)",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-19.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-23",
+              "name": "'88 HONDA CR-X (BLUE)",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-23.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-20",
+              "name": "FORD ESCORT RS2000",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-20.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-21",
+              "name": "MONSTER HIGH GHOUL MOBILE",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-21.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-22",
+              "name": "SUBARU WRX STI",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-22.png",
+              "condition": "100% New"
+            }
+          ]
+        },
+        {
+          "id": "hw-basic-100k",
+          "name": "Đồng giá 100.000đ",
+          "products": [
+            {
+              "id": "basic-100k-1",
+              "name": "Porsche 904 Carrera GTS #158 * Silver * 2024 Hot Wheels Case H",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-1.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-2",
+              "name": "2020 Hot Wheels Speed Blur Red ‘01 Custom Acura Integra GSR",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-2.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-3",
+              "name": "2020 HOT WHEELS HOT TRUCKS '91 GMC SYCLONE",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-3.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-4",
+              "name": "Hot Wheels 2020 Volvo 850 Estate (Silver) HW Race Day",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-4.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-5",
+              "name": "PORSCHE 911 GT3",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-5.png",
+              "condition": "100% New"
+            }
+          ]
+        },
+        {
+          "id": "t-hunt",
+          "name": "Treasure Hunt",
+          "products": [
+            {
+              "id": "thunt-1",
+              "name": "Mad Propz (2023)",
+              "description": "",
+              "price": "120.000đ",
+              "image": "images/product/thunt/thunt-1.jpg",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-2",
+              "name": "2023 HOT WHEELS TREASURE HUNT TOYOTA LAND CRUISER",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/thunt/thunt-2.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-3",
+              "name": "2024 Hot Wheels Draggin’ Wagon Treasure Hunt HW Ride-Ons NEW",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/thunt/thunt-3.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-4",
+              "name": "2023 Hot Wheels Treasure Hunt 2020 Ram 1500 Rebel Wheel Error 7/10 HW Rescue",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/thunt/thunt-4.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-5",
+              "name": "2023 Hot Wheels Time Shifter #210 Gray Treasure Hunt",
+              "description": "",
+              "price": "90.000đ",
+              "image": "images/product/thunt/thunt-5.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-6",
+              "name": "CUSTOM '53 CHEVY",
+              "description": "",
+              "price": "90.000đ",
+              "image": "images/product/thunt/thunt-6.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-7",
+              "name": "TOONED VOLKSWAGEN GOLF MK1",
+              "description": "",
+              "price": "190.000đ",
+              "image": "images/product/thunt/thunt-7.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-8",
+              "name": "MADFAST",
+              "description": "",
+              "price": "90.000đ",
+              "image": "images/product/thunt/thunt-8.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-9",
+              "name": "SKULL SHAKER (2021)",
+              "description": "",
+              "price": "90.000đ",
+              "image": "images/product/thunt/thunt-9.png",
+              "condition": "100% New"
+            }
+          ]
+        },
+        {
+          "id": "st-hunt",
+          "name": "Supper Treasure Hunt",
+          "products": [
+            {
+              "id": "sthunt-1",
+              "name": "'60s Fiat 500D Modificado",
+              "description": "",
+              "price": "1.900.000đ",
+              "image": "images/product/thunt/sthunt-1.png",
+              "condition": "100% New"
+            }
+          ]
+        },
+        {
+          "id": "loose-items",
+          "name": "Xe loose",
+          "products": [
+            {
+              "id": "loose-1",
+              "name": "Mod Rod (2023 Treasure Hunt)",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-1.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-2",
+              "name": "TOON'D '83 CHEVY SILVERADO",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-2.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-3",
+              "name": "PORSCHE 911 CARRERA",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-3.webp",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-4",
+              "name": "'32 FORD",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-4.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-5",
+              "name": "LANCIA DELTA INTEGRALE",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-5.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-6",
+              "name": "'89 MERCEDES-BENZ 560 SEC AMG",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-6.jpg",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-7",
+              "name": "'94 TOYOTA SUPRA",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-7.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-8",
+              "name": "'18 DODGE CHALLENGER",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-8.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-9",
+              "name": "'70 DODGE CHARGER",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-9.png",
+              "condition": "Loose - 90%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hw-basic-70k",
+      "name": "Đồng giá 70.000đ",
+      "subcategories": [
+        {
+          "id": "hw-basic-70k",
+          "name": "Đồng giá 70.000đ",
+          "products": [
+            {
+              "id": "basic-70k-1",
+              "name": "Hot Wheels Fast & Furious Ice Charger",
+              "description": "2024 New Casting - 1968 Dodge Charger",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-1.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-2",
+              "name": "2020 Hot Wheels HW Speed Graphics Blue ‘68 Dodge Dart",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-2.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-3-2",
+              "name": "'32 FORD",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/loose/loose-4.png",
+              "condition": "90% CARD NỨT, RÁCH"
+            },
+            {
+              "id": "basic-70k-3",
+              "name": "Mazda RX7 Police",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-3.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-4",
+              "name": "Retro Racers Mazda 787B Red",
+              "description": "2023 Hot Wheels #28",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-4.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-5",
+              "name": "'83 Chevy Silverado (Black)",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-5.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-6",
+              "name": "Mazda Repu",
+              "description": "147/250 HW Hot Trucks 4/10 Excellent HTF",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-6.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-7",
+              "name": "'73 Honda Civic Custom",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-7.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-8",
+              "name": "'60s Fiat 500D Modificado",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-8.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-70k-9",
+              "name": "'Vespa 90 SS Super Sprint (1966)",
+              "description": "",
+              "price": "70.000đ",
+              "image": "images/product/basic/basic-70k-9.png",
+              "condition": "100% New"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hw-basic-80k",
+      "name": "HW Basic Đồng giá 80.000đ",
+      "subcategories": [
+        {
+          "id": "hw-basic-80k",
+          "name": "Đồng giá 80.000đ",
+          "products": [
+            {
+              "id": "basic-80k-1",
+              "name": "Baja Hauler 33/250",
+              "description": "Hot Wheels - 2023 HW Haulers 3/5 ",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-1.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-2",
+              "name": "Baja Bone Shaker",
+              "description": "HW Art Cars 3/10 - Black/Purple - 2023",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-2.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-3",
+              "name": "Mazda RX-3 #156 (Orange) ",
+              "description": "2024 Hot Wheels Case H",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-3.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-4",
+              "name": "(red) Baja Blazers 157/250",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-4.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-5",
+              "name": "Volvo 240 drift wagon",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-5.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-6",
+              "name": "HI BEAM Pink",
+              "description": "2020 Hot Wheels Olympic Games Tokyo 2020",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-6.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-7",
+              "name": "HIROHATA MERC",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-7.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-8",
+              "name": "'52 CHEVY",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-8.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-9",
+              "name": "'89 MAZDA SAVANNA RX-7 FC35",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-9.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-10",
+              "name": "ASTON MARTIN VANTAGE GTE",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-10.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-11",
+              "name": "BMW M3 GT2",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-11.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-12",
+              "name": "MAILED IT",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-12.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-13",
+              "name": "'85 HONDA CITY TURBO II (GREEN)",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-13.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-14",
+              "name": "'85 HONDA CITY TURBO II (BLUE)",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-14.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-15",
+              "name": "'82 TOYOTA SUPRA",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-15.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-16",
+              "name": "PORSCHE 911 CARRERA RS 2.7",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-16.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-17",
+              "name": "PORSCHE 911 TURBO 3.6 (964)",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-17.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-18",
+              "name": "'84 MUSTANG SVO",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-18.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-19",
+              "name": "'88 HONDA CR-X (GRAY)",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-19.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-23",
+              "name": "'88 HONDA CR-X (BLUE)",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-23.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-20",
+              "name": "FORD ESCORT RS2000",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-20.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-21",
+              "name": "MONSTER HIGH GHOUL MOBILE",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-21.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-80k-22",
+              "name": "SUBARU WRX STI",
+              "description": "",
+              "price": "80.000đ",
+              "image": "images/product/basic/basic-80k-22.png",
+              "condition": "100% New"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hw-basic-100k",
+      "name": "HW Basic Đồng giá 100.000đ",
+      "subcategories": [
+        {
+          "id": "hw-basic-100k",
+          "name": "Đồng giá 100.000đ",
+          "products": [
+            {
+              "id": "basic-100k-1",
+              "name": "Porsche 904 Carrera GTS #158 * Silver * 2024 Hot Wheels Case H",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-1.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-2",
+              "name": "2020 Hot Wheels Speed Blur Red ‘01 Custom Acura Integra GSR",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-2.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-3",
+              "name": "2020 HOT WHEELS HOT TRUCKS '91 GMC SYCLONE",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-3.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-4",
+              "name": "Hot Wheels 2020 Volvo 850 Estate (Silver) HW Race Day",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-4.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-5",
+              "name": "PORSCHE 911 GT3",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-5.png",
+              "condition": "100% New"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rare-items",
+      "name": "TH & STH",
+      "subcategories": [
+        {
+          "id": "t-hunt",
+          "name": "Treasure Hunt",
+          "products": [
+            {
+              "id": "thunt-1",
+              "name": "Mad Propz (2023)",
+              "description": "",
+              "price": "120.000đ",
+              "image": "images/product/thunt/thunt-1.jpg",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-2",
+              "name": "2023 HOT WHEELS TREASURE HUNT TOYOTA LAND CRUISER",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/thunt/thunt-2.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-3",
+              "name": "2024 Hot Wheels Draggin’ Wagon Treasure Hunt HW Ride-Ons NEW",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/thunt/thunt-3.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-4",
+              "name": "2023 Hot Wheels Treasure Hunt 2020 Ram 1500 Rebel Wheel Error 7/10 HW Rescue",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/thunt/thunt-4.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-5",
+              "name": "2023 Hot Wheels Time Shifter #210 Gray Treasure Hunt",
+              "description": "",
+              "price": "90.000đ",
+              "image": "images/product/thunt/thunt-5.png",
+              "condition": "100% New"
+            }
+          ]
+        },
+        {
+          "id": "st-hunt",
+          "name": "Supper Treasure Hunt",
+          "products": [
+            {
+              "id": "sthunt-1",
+              "name": "'60s Fiat 500D Modificado",
+              "description": "",
+              "price": "1.900.000đ",
+              "image": "images/product/thunt/sthunt-1.png",
+              "condition": "100% New"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loose-items",
+      "name": "Xe loose",
+      "subcategories": [
+        {
+          "id": "loose-items",
+          "name": "Xe loose",
+          "products": [
+            {
+              "id": "loose-1",
+              "name": "Mod Rod (2023 Treasure Hunt)",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-1.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-2",
+              "name": "TOON'D '83 CHEVY SILVERADO",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-2.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-3",
+              "name": "PORSCHE 911 CARRERA",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-3.webp",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-4",
+              "name": "'32 FORD",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-4.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-5",
+              "name": "LANCIA DELTA INTEGRALE",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-5.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-10",
+              "name": "LANCIA DELTA INTEGRALE",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-10.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-6",
+              "name": "'89 MERCEDES-BENZ 560 SEC AMG",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-6.jpg",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-7",
+              "name": "'94 TOYOTA SUPRA",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-7.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-8",
+              "name": "'18 DODGE CHALLENGER",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-8.png",
+              "condition": "Loose - 90%"
+            },
+            {
+              "id": "loose-9",
+              "name": "'70 DODGE CHARGER",
+              "description": "",
+              "price": "50.000đ",
+              "image": "images/product/loose/loose-9.png",
+              "condition": "Loose - 90%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "another-items",
+      "name": "Another",
+      "subcategories": [
+        {
+          "id": "another-items",
+          "name": "Các loại xe khác",
+          "products": []
+        }
+      ]
+    },
+    {
+      "id": "t-hunt",
+      "name": "Treasure Hunt",
+      "subcategories": [
+        {
+          "id": "t-hunt",
+          "name": "Treasure Hunt",
+          "products": [
+            {
+              "id": "thunt-1",
+              "name": "Mad Propz (2023)",
+              "description": "",
+              "price": "120.000đ",
+              "image": "images/product/thunt/thunt-1.jpg",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-2",
+              "name": "2023 HOT WHEELS TREASURE HUNT TOYOTA LAND CRUISER",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/thunt/thunt-2.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-3",
+              "name": "2024 Hot Wheels Draggin’ Wagon Treasure Hunt HW Ride-Ons NEW",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/thunt/thunt-3.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-4",
+              "name": "2023 Hot Wheels Treasure Hunt 2020 Ram 1500 Rebel Wheel Error 7/10 HW Rescue",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/thunt/thunt-4.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-5",
+              "name": "2023 Hot Wheels Time Shifter #210 Gray Treasure Hunt",
+              "description": "",
+              "price": "90.000đ",
+              "image": "images/product/thunt/thunt-5.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-6",
+              "name": "CUSTOM '53 CHEVY",
+              "description": "",
+              "price": "90.000đ",
+              "image": "images/product/thunt/thunt-6.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-7",
+              "name": "TOONED VOLKSWAGEN GOLF MK1",
+              "description": "",
+              "price": "190.000đ",
+              "image": "images/product/thunt/thunt-7.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-8",
+              "name": "MADFAST",
+              "description": "",
+              "price": "90.000đ",
+              "image": "images/product/thunt/thunt-8.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "thunt-9",
+              "name": "SKULL SHAKER (2021)",
+              "description": "",
+              "price": "90.000đ",
+              "image": "images/product/thunt/thunt-9.png",
+              "condition": "100% New"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "st-hunt",
+      "name": "Supper Treasure Hunt",
+      "subcategories": [
+        {
+          "id": "st-hunt",
+          "name": "Supper Treasure Hunt",
+          "products": [
+            {
+              "id": "sthunt-1",
+              "name": "'60s Fiat 500D Modificado",
+              "description": "",
+              "price": "1.900.000đ",
+              "image": "images/product/thunt/sthunt-1.png",
+              "condition": "100% New"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
