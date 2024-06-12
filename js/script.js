@@ -54,7 +54,7 @@ $(document).ready(function () {
         .removeClass("active");
     }
   });
-  $.getJSON("./json/database.json", function (data) {
+  $.getJSON("http://filemanager.tscovn.com:9001/_/hazel/database.json", function (data) {
     const categories = data.categories;
     categories.forEach((category) => {
       const categoryElement = $(`#${category.id}`);
