@@ -54,12 +54,23 @@ $(document).ready(function () {
         .removeClass("active");
     }
   });
+<<<<<<< HEAD
   $.getJSON("./json/database.json", function (data) {
     const categories = data.categories;
     categories.forEach((category) => {
       const categoryElement = $(`#${category.id}`);
       category.subcategories.forEach((subcategory) => {
         let productHtml = `
+=======
+  $.getJSON(
+    "./json/database.json",
+    function (data) {
+      const categories = data.categories;
+      categories.forEach((category) => {
+        const categoryElement = $(`#${category.id}`);
+        category.subcategories.forEach((subcategory) => {
+          let productHtml = `
+>>>>>>> 23c7d9273a23eb986e4a1bf4189c11611095f6cc
           <div class="listPage__item--title">
               <p class="title__text">${subcategory.name}</p>
           </div>    
