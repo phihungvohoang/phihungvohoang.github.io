@@ -54,20 +54,18 @@ $(document).ready(function () {
         .removeClass("active");
     }
   });
-  $.getJSON(
-    "https://phihungvohoang.000webhostapp.com/database.json",
-    function (data) {
-      const categories = data.categories;
-      categories.forEach((category) => {
-        const categoryElement = $(`#${category.id}`);
-        category.subcategories.forEach((subcategory) => {
-          let productHtml = `
+  $.getJSON("./json/database.json", function (data) {
+    const categories = data.categories;
+    categories.forEach((category) => {
+      const categoryElement = $(`#${category.id}`);
+      category.subcategories.forEach((subcategory) => {
+        let productHtml = `
           <div class="listPage__item--title">
               <p class="title__text">${subcategory.name}</p>
           </div>    
           <div class="listPage__item--listProduct">`;
-          subcategory.products.forEach((product) => {
-            productHtml += `
+        subcategory.products.forEach((product) => {
+          productHtml += `
                 <div class="listProduct__item">
                     <div class="item__wrapImg">
                         <img class="item__wrapImg--img" src="${product.image}" />
@@ -83,14 +81,13 @@ $(document).ready(function () {
                     </div>
                 </div>
             `;
-          });
-          productHtml += `</div>`;
-
-          categoryElement.append(productHtml);
         });
+        productHtml += `</div>`;
+
+        categoryElement.append(productHtml);
       });
-    }
-  );
+    });
+  });
 });
 
 function selectTab(event, tabName) {

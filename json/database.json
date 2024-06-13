@@ -323,6 +323,30 @@
               "price": "100.000đ",
               "image": "images/product/basic/basic-100k-5.png",
               "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-6",
+              "name": "SCION XB",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-6.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-7",
+              "name": "TOONED TWIN MILL",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-7.webp",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-8",
+              "name": "TOONED VOLKSWAGEN GOLF MK1",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-7.png",
+              "condition": "100% New"
             }
           ]
         },
@@ -832,6 +856,30 @@
               "description": "",
               "price": "100.000đ",
               "image": "images/product/basic/basic-100k-5.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-6",
+              "name": "SCION XB",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-6.png",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-7",
+              "name": "TOONED TWIN MILL",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-7.webp",
+              "condition": "100% New"
+            },
+            {
+              "id": "basic-100k-8",
+              "name": "TOONED VOLKSWAGEN GOLF MK1",
+              "description": "",
+              "price": "100.000đ",
+              "image": "images/product/basic/basic-100k-7.png",
               "condition": "100% New"
             }
           ]
