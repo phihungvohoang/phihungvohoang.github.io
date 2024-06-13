@@ -54,18 +54,20 @@ $(document).ready(function () {
         .removeClass("active");
     }
   });
-  $.getJSON("113.161.161.246:9001/_/hazel/database.json", function (data) {
-    const categories = data.categories;
-    categories.forEach((category) => {
-      const categoryElement = $(`#${category.id}`);
-      category.subcategories.forEach((subcategory) => {
-        let productHtml = `
+  $.getJSON(
+    "https://phihungvohoang.000webhostapp.com/database.json",
+    function (data) {
+      const categories = data.categories;
+      categories.forEach((category) => {
+        const categoryElement = $(`#${category.id}`);
+        category.subcategories.forEach((subcategory) => {
+          let productHtml = `
           <div class="listPage__item--title">
               <p class="title__text">${subcategory.name}</p>
           </div>    
           <div class="listPage__item--listProduct">`;
-        subcategory.products.forEach((product) => {
-          productHtml += `
+          subcategory.products.forEach((product) => {
+            productHtml += `
                 <div class="listProduct__item">
                     <div class="item__wrapImg">
                         <img class="item__wrapImg--img" src="${product.image}" />
@@ -81,13 +83,14 @@ $(document).ready(function () {
                     </div>
                 </div>
             `;
-        });
-        productHtml += `</div>`;
+          });
+          productHtml += `</div>`;
 
-        categoryElement.append(productHtml);
+          categoryElement.append(productHtml);
+        });
       });
-    });
-  });
+    }
+  );
 });
 
 function selectTab(event, tabName) {
