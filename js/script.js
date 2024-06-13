@@ -55,7 +55,7 @@ $(document).ready(function () {
     }
   });
   $.getJSON(
-    "https://phihungvohoang.000webhostapp.com/database.json",
+    "./json/database.json",
     function (data) {
       const categories = data.categories;
       categories.forEach((category) => {
