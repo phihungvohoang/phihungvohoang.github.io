@@ -86,7 +86,10 @@ body.disabled {
   box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.2);
   border: solid 3px transparent;
 }
-
+del {
+  text-decoration: line-through;
+  color: #ed213a;
+}
 /* HEADER */
 .blockHeader {
   position: fixed;

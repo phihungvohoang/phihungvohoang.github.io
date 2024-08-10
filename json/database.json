@@ -12,7 +12,7 @@
               "id": "basic-70k-1",
               "name": "Hot Wheels Fast & Furious Ice Charger",
               "description": "2024 New Casting - 1968 Dodge Charger",
-              "price": "70.000đ",
+              "price": "<del>70.000đ<del>",
               "image": "images/product/basic/basic-70k-1.png",
               "condition": "100% New"
             },
@@ -28,7 +28,7 @@
               "id": "basic-70k-3-2",
               "name": "'32 FORD",
               "description": "",
-              "price": "70.000đ",
+              "price": "<del>70.000đ</del>",
               "image": "images/product/loose/loose-4.png",
               "condition": "90% CARD NỨT, RÁCH"
             },
@@ -358,7 +358,7 @@
               "id": "thunt-1",
               "name": "Mad Propz (2023)",
               "description": "",
-              "price": "120.000đ",
+              "price": "<del>SOLD OUT</del>",
               "image": "images/product/thunt/thunt-1.jpg",
               "condition": "100% New"
             },
@@ -382,7 +382,7 @@
               "id": "thunt-4",
               "name": "2023 Hot Wheels Treasure Hunt 2020 Ram 1500 Rebel Wheel Error 7/10 HW Rescue",
               "description": "",
-              "price": "100.000đ",
+              "price": "<del>SOLD OUT</del>",
               "image": "images/product/thunt/thunt-4.png",
               "condition": "100% New"
             },
@@ -436,7 +436,7 @@
               "id": "sthunt-1",
               "name": "'60s Fiat 500D Modificado",
               "description": "",
-              "price": "1.900.000đ",
+              "price": "1.234.567đ",
               "image": "images/product/thunt/sthunt-1.png",
               "condition": "100% New"
             }
@@ -474,7 +474,7 @@
               "id": "loose-4",
               "name": "'32 FORD",
               "description": "",
-              "price": "50.000đ",
+              "price": "<del>50.000đ</del>",
               "image": "images/product/loose/loose-4.png",
               "condition": "Loose - 90%"
             },
@@ -498,7 +498,7 @@
               "id": "loose-7",
               "name": "'94 TOYOTA SUPRA",
               "description": "",
-              "price": "50.000đ",
+              "price": "<del>50.000đ</del>",
               "image": "images/product/loose/loose-7.png",
               "condition": "Loose - 90%"
             },
@@ -514,7 +514,7 @@
               "id": "loose-9",
               "name": "'70 DODGE CHARGER",
               "description": "",
-              "price": "50.000đ",
+              "price": "<del>50.000đ</del>",
               "image": "images/product/loose/loose-9.png",
               "condition": "Loose - 90%"
             }
@@ -534,7 +534,7 @@
               "id": "basic-70k-1",
               "name": "Hot Wheels Fast & Furious Ice Charger",
               "description": "2024 New Casting - 1968 Dodge Charger",
-              "price": "70.000đ",
+              "price": "<del>70.000đ</del>",
               "image": "images/product/basic/basic-70k-1.png",
               "condition": "100% New"
             },
@@ -550,7 +550,7 @@
               "id": "basic-70k-3-2",
               "name": "'32 FORD",
               "description": "",
-              "price": "70.000đ",
+              "price": "<del>70.000đ</del>",
               "image": "images/product/loose/loose-4.png",
               "condition": "90% CARD NỨT, RÁCH"
             },
@@ -898,7 +898,7 @@
               "id": "thunt-1",
               "name": "Mad Propz (2023)",
               "description": "",
-              "price": "120.000đ",
+              "price": "<del>SOLD OUT</del>",
               "image": "images/product/thunt/thunt-1.jpg",
               "condition": "100% New"
             },
@@ -922,7 +922,7 @@
               "id": "thunt-4",
               "name": "2023 Hot Wheels Treasure Hunt 2020 Ram 1500 Rebel Wheel Error 7/10 HW Rescue",
               "description": "",
-              "price": "100.000đ",
+              "price": "<del>SOLD OUT</del>",
               "image": "images/product/thunt/thunt-4.png",
               "condition": "100% New"
             },
@@ -944,7 +944,7 @@
               "id": "sthunt-1",
               "name": "'60s Fiat 500D Modificado",
               "description": "",
-              "price": "1.900.000đ",
+              "price": "1.234.567đ",
               "image": "images/product/thunt/sthunt-1.png",
               "condition": "100% New"
             }
@@ -1020,7 +1020,7 @@
               "id": "loose-7",
               "name": "'94 TOYOTA SUPRA",
               "description": "",
-              "price": "50.000đ",
+              "price": "<del>50.000đ</del>",
               "image": "images/product/loose/loose-7.png",
               "condition": "Loose - 90%"
             },
@@ -1036,7 +1036,7 @@
               "id": "loose-9",
               "name": "'70 DODGE CHARGER",
               "description": "",
-              "price": "50.000đ",
+              "price": "<del>50.000đ</del>",
               "image": "images/product/loose/loose-9.png",
               "condition": "Loose - 90%"
             }
@@ -1067,7 +1067,7 @@
               "id": "thunt-1",
               "name": "Mad Propz (2023)",
               "description": "",
-              "price": "120.000đ",
+              "price": "<del>SOLD OUT</del>",
               "image": "images/product/thunt/thunt-1.jpg",
               "condition": "100% New"
             },
@@ -1091,7 +1091,7 @@
               "id": "thunt-4",
               "name": "2023 Hot Wheels Treasure Hunt 2020 Ram 1500 Rebel Wheel Error 7/10 HW Rescue",
               "description": "",
-              "price": "100.000đ",
+              "price": "<del>SOLD OUT</del>",
               "image": "images/product/thunt/thunt-4.png",
               "condition": "100% New"
             },
@@ -1151,7 +1151,7 @@
               "id": "sthunt-1",
               "name": "'60s Fiat 500D Modificado",
               "description": "",
-              "price": "1.900.000đ",
+              "price": "1.234.567đ",
               "image": "images/product/thunt/sthunt-1.png",
               "condition": "100% New"
             }
