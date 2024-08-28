@@ -4,252 +4,237 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HotWheels Binh Duong</title>
-    <meta name="description" content="HazelShop Hunt and trade Hot Wheels" />
+    <meta name="description" content="HazelShop Hunt and trade Hot Wheels." />
     <meta name="author" content="Hazel Vo aka Hùng đẹp trai" />
-    <link type="text/css" rel="stylesheet" href="css/reset.css" />
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
-    <link type="text/css" rel="stylesheet" href="css/responsive.css" />
-    <link rel="icon" href="images/logo/logo.png" type="image/png" />
-    <script
-      type="module"
-      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-    ></script>
-  </head>
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="HotWheels Binh Duong" />
+    <meta property="og:description" content="HazelShop Hunt and trade Hot Wheels." />
+    <meta property="og:image" content="https://phihungvohoang.github.io/images/logo/thumb.png" />
+    <meta property="og:url" content="https://phihungvohoang.github.io" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="./images/s-hunt.png" type="image/png" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/loading.css" />
+</head>
   <body>
-    <div class="fullWeb">
-      <div class="blockHeader">
-        <div class="blockHeader__wrap">
-          <a
-            href="https://www.facebook.com/izaass.anons/"
-            class="blockLogo"
-            target="_blank"
-          >
-            <div class="blockLogo__wrap">
-              <img
-                class="blockLogo__wrap--img"
-                src="images/logo/logo-light.png"
-                alt="logo"
-              />
-            </div>
-          </a>
-          <div class="blockMenu">
-            <div class="blockMenu__listCate">
-              <div class="blockMenu__listCate--item">
-                <div class="item__nameCate">
-                  <img class="item__nameCate--img" src="images/icon/car.png" />
-                  <p class="item__nameCate--text">Xe Basic</p>
-                  <img
-                    class="item__nameCate--menuDrop"
-                    src="images/icon/icMenuDrop.png"
-                  />
-                </div>
-                <div class="item__listChild">
-                  <button
-                    class="item__listChild--item active"
-                    onclick="selectTab(event, 'all-car')"
-                  >
-                    <div class="item__imgChild icLogi">
-                      <img
-                        class="item__imgChild--img"
-                        src="images/icon/hw.png"
-                      />
-                    </div>
-                    <p class="item__nameChild">Tất cả xe</p>
-                  </button>
-                  <button
-                    class="item__listChild--item"
-                    onclick="selectTab(event, 'hw-basic-70k')"
-                  >
-                    <div class="item__imgChild icLogi">
-                      <img
-                        class="item__imgChild--img"
-                        src="images/icon/hw.png"
-                      />
-                    </div>
-                    <p class="item__nameChild">Đồng giá 70K</p>
-                  </button>
-                  <button
-                    class="item__listChild--item"
-                    onclick="selectTab(event, 'hw-basic-80k')"
-                  >
-                    <div class="item__imgChild icRazer">
-                      <img
-                        class="item__imgChild--img"
-                        src="images/icon/hw.png"
-                      />
-                    </div>
-                    <p class="item__nameChild">Đồng giá 80K</p>
-                  </button>
-                  <button
-                    class="item__listChild--item"
-                    onclick="selectTab(event, 'hw-basic-100k')"
-                  >
-                    <div class="item__imgChild icRazer">
-                      <img
-                        class="item__imgChild--img"
-                        src="images/icon/hw.png"
-                      />
-                    </div>
-                    <p class="item__nameChild">Đồng giá 100K</p>
-                  </button>
-                </div>
-              </div>
-
-              <div class="blockMenu__listCate--item">
-                <div class="item__nameCate">
-                  <img
-                    class="item__nameCate--img"
-                    src="images/icon/wheels2.png"
-                  />
-                  <p class="item__nameCate--text">TH & $TH</p>
-                  <img
-                    class="item__nameCate--menuDrop"
-                    src="images/icon/icMenuDrop.png"
-                  />
-                </div>
-                <div class="item__listChild">
-                  <button
-                    class="item__listChild--item"
-                    onclick="selectTab(event, 't-hunt')"
-                  >
-                    <div class="item__imgChild icLogi">
-                      <img
-                        class="item__imgChild--img"
-                        src="images/icon/hw.webp"
-                      />
-                    </div>
-                    <p class="item__nameChild">Treasure Hunt</p>
-                  </button>
-                  <button
-                    class="item__listChild--item"
-                    onclick="selectTab(event, 'st-hunt')"
-                  >
-                    <div class="item__imgChild icRazer">
-                      <img
-                        class="item__imgChild--img"
-                        src="images/s-hunt.png"
-                      />
-                    </div>
-                    <p class="item__nameChild">Supper Treasure Hunt</p>
-                  </button>
-                </div>
-              </div>
-
-              <div class="blockMenu__listCate--item">
-                <div class="item__nameCate">
-                  <img class="item__nameCate--img" src="images/icon/car2.png" />
-                  <p class="item__nameCate--text">Khác</p>
-                  <img
-                    class="item__nameCate--menuDrop"
-                    src="images/icon/icMenuDrop.png"
-                  />
-                </div>
-                <div class="item__listChild">
-                  <button
-                    class="item__listChild--item"
-                    onclick="selectTab(event, 'loose-items')"
-                  >
-                    <div class="item__imgChild icLogi">
-                      <img
-                        class="item__imgChild--img"
-                        src="images/icon/icFix.png"
-                      />
-                    </div>
-                    <p class="item__nameChild">Xe loose</p>
-                  </button>
-                  <button
-                    class="item__listChild--item"
-                    onclick="selectTab(event, 'another-items')"
-                  >
-                    <div class="item__imgChild icLogi">
-                      <img
-                        class="item__imgChild--img"
-                        src="images/icon/icCopy.png"
-                      />
-                    </div>
-                    <p class="item__nameChild">Các loại khác</p>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" id="top" href="/">
+        <img
+          src="./images/logo/logo-light.png"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt="logo"
+        />
+        Hazel Shop
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#basic">Basic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#th">Treasure Hunt</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#sth">Sup Treasure Hunt</a>
+          </li>
+        </ul>
       </div>
-
-      <div class="blockContent">
-        <div class="blockContent__wrapContent blockContainer">
-          <div class="blockContent__wrapContent--listPage">
-            <!-- HW Basic -->
-            <div id="all-car" class="listPage__item active">
-              <!-- Content will be loaded dynamically from JSON -->
-            </div>
-            <!-- HW Basic -->
-            <div id="hw-basic-70k" class="listPage__item">
-              <!-- Content will be loaded dynamically from JSON -->
-            </div>
-            <!-- HW Basic -->
-            <div id="hw-basic-80k" class="listPage__item">
-              <!-- Content will be loaded dynamically from JSON -->
-            </div>
-            <!-- HW Basic -->
-            <div id="hw-basic-100k" class="listPage__item">
-              <!-- Content will be loaded dynamically from JSON -->
-            </div>
-            <!-- rare-items -->
-            <div id="rare-items" class="listPage__item">
-              <!-- Content will be loaded dynamically from JSON -->
-            </div>
-            <!-- T-HUNT -->
-            <div id="t-hunt" class="listPage__item">
-              <!-- Content will be loaded dynamically from JSON -->
-            </div>
-            <!-- ST-HUNT -->
-            <div id="st-hunt" class="listPage__item">
-              <!-- Content will be loaded dynamically from JSON -->
-            </div>
-            <!-- Another car -->
-            <div id="loose-items" class="listPage__item">
-              <!-- Content will be loaded dynamically from JSON -->
-            </div>
-            <div id="another-items" class="listPage__item">
-              <!-- Content will be loaded dynamically from JSON -->
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="blockLoading">
-        <div class="blockLoading__load"></div>
-        <div class="blockLoading__text">Đang tải</div>
-      </div>
-
-      <div class="blockLoadWeb active">
-        <div class="blockLoadWeb__load">
-          <img
-            class="blockLoadWeb__load--logo"
-            src="images/logo/logo-light.png"
+    </nav>
+    <!-- Navbar -->
+    <!-- Product -->
+    <div class="container">
+      <!-- Search and Other Filters -->
+      <div class="search-bar container">
+        <form class="form-inline">
+          <input
+            class="form-control mr-2 mt-2"
+            id="searchInput"
+            type="text"
+            placeholder="Search cars..."
           />
-        </div>
-        <div class="blockLoadWeb__progress"></div>
-        <div class="blockLoadWeb__progressBar"></div>
-        <div class="blockLoadWeb__intro">
-          <img class="intro__img" src="images/event/intro.webp" />
-          <div class="intro__overlay"></div>
-        </div>
-      </div>
+          <select class="form-control mr-2 mt-2" id="conditionFilter">
+            <option value="">Condition</option>
+            <option value="New">New</option>
+            <option value="Loose">Loose</option>
+            <option value="Cracked">Cracked</option>
+            <option value="SoldOut">Sold Out</option>
+          </select>
+          <select class="form-control  mr-2 mt-2" id="priceFilter">
+            <option value="">Price Range</option>
+            <option value="0-70"> > 70K</option>
+            <option value="71-80"> > 80k</option>
+            <option value="81-100"> > 100k</option>
+            <option value="101-120"> > 120K</option>
+            <option value="121-150"> > 150k</option>
+            <option value="200-999"> > 200k</option>
 
-      <div class="blockChat">
-        <a
-          href="https://m.me/izaass.anons"
-          target="_blank"
-          class="blockChat__item"
-        >
-          <img class="blockChat__item--img" src="images/icon/icMess.svg" />
-        </a>
+          </select>
+          <select class="form-control  mr-2 mt-2" id="sortBy">
+            <option value="">Sort By</option>
+            <option value="name-asc">Name (A-Z)</option>
+            <option value="name-desc">Name (Z-A)</option>
+            <option value="price-asc">Price (Low to High)</option>
+            <option value="price-desc">Price (High to Low)</option>
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+          </select>
+          <select class="form-control mr-2 mt-2" id="tagFilter">
+            <option value="">Filter by Tag</option>
+            <!-- Tags will be inserted here -->
+          </select>
+        </form>
       </div>
+      <!-- Search and Other Filters -->
+
+      <!-- Car Cards -->
+        <div class="row" id="carContainer">
+          <!-- Car cards will be inserted here -->
+        </div>
+      <!-- Car Cards -->
+
+    </div>
+      <!-- Product -->
+      <!-- scroll to top -->
+
+    <div class="scroll_top" style="display: block">
+      <a href="#top" class="btn btn-success"
+        ><i class="fa-solid fa-angle-up"></i
+      ></a>
+    </div>
+      <!-- scroll to top -->
+      <!-- Loading -->
+    <div class="blockLoading">
+      <div class="blockLoading__load"></div>
+      <div class="blockLoading__text">Đang tải</div>
     </div>
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <div class="blockLoadWeb active">
+      <div class="blockLoadWeb__load">
+        <img
+          class="blockLoadWeb__load--logo"
+          src="images/logo/logo-light.png"
+          alt="logo"
+        />
+      </div>
+      <div class="blockLoadWeb__progress"></div>
+      <div class="blockLoadWeb__progressBar"></div>
+      <div class="blockLoadWeb__intro">
+        <img class="intro__img" src="images/event/intro.webp" alt="intro" />
+        <div class="intro__overlay"></div>
+      </div>
+    </div>
+    <div class="blockChat">
+      <a
+        href="https://m.me/izaass.anons"
+        target="_blank"
+        class="blockChat__item"
+      >
+        <img class="blockChat__item--img" src="images/icon/icMess.svg" alt="mess-icon" />
+      </a>
+    </div>
+    <!-- Loading -->
+
+  </div>
+    <!-- footer -->
+    <footer class="bg-dark text-center" style="margin-top: 10px">
+      <!-- Grid container -->
+      <div class="container p-2 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-1">
+          <!-- Facebook -->
+          <a
+            class="btn text-white btn-floating m-1"
+            style="background-color: #3b5998"
+            href="https://www.facebook.com/izaass.anons"
+            role="button"
+            target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+
+          <!-- Instagram -->
+          <a
+            class="btn text-white btn-floating m-1"
+            style="background-color: #ac2bac"
+            href="https://www.instagram.com/izaass.anons"
+            role="button"
+            target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <!-- Messenger -->
+          <a
+            class="btn text-white btn-floating m-1"
+            style="background-color: #333333"
+            href="https://m.me/izaass.anons"
+            role="button"
+            target="_blank"
+            ><i
+              class="fa-brands fa-facebook-messenger"
+              style="color: #74c0fc"
+            ></i
+          ></a>
+          <!-- Zalo -->
+          <a
+          class="btn text-white btn-floating m-1"
+          style="background-color: #333333; padding: 5px;"
+          href="https://zalo.me/0777123799"
+          role="button"
+          target="_blank"
+          >        <img class="fa-brands" style="width: 30px; height: auto;" src="images/icon/icZalo.png" alt="zalo-icon" />
+        </a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center text-primary">
+        © 2024
+        <a
+          class="text-primary"
+          href="https://www.facebook.com/izaass.anons"
+          target="_blank"
+          >HazelShop</a
+        >
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/fontawesome.min.js"
+      integrity="sha512-NeFv3hB6XGV+0y96NVxoWIkhrs1eC3KXBJ9OJiTFktvbzJ/0Kk7Rmm9hJ2/c2wJjy6wG0a0lIgehHjCTDLRwWw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/script.js"></script>
+
   </body>
 </html>
