@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
       noProductsMessage.classList.add("d-none");
       cars.forEach((car) => {
         const card = document.createElement("div");
-        card.className = "col-md-4 pt-2";
+        card.className = "col-lg-4 col-xl-3 col-md-6 col-12 pt-2";
         card.innerHTML = `
           <div class="card">
             <div class="img-hover-zoom--quick-zoom">
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h5 class="card-title">${car.name}</h5>
                 <p class="card-text price ${car.condition}">${car.price}</p>
               <div class="card-details">
-                <p class="card-text condition">${car.condition}</p>
+                <p class="card-text condition  ${car.condition}">${car.condition}</p>
                 <p class="card-text stock">Stock: ${car.stock}</p>
               </div>
             </div>

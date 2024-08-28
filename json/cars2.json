@@ -47,7 +47,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": []
+    "tags": ["Truck"]
   },
   {
     "id": 6,
@@ -57,7 +57,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": []
+    "tags": ["Truck"]
   },
   {
     "id": 7,
@@ -137,7 +137,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": []
+    "tags": ["Truck"]
   },
   {
     "id": 15,
@@ -167,7 +167,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": []
+    "tags": ["Toon", "Truck"]
   },
   {
     "id": 18,
@@ -177,7 +177,7 @@
     "condition": "Loose",
     "stock": 1,
     "type": "basic",
-    "tags": ["Toon"]
+    "tags": ["Toon", "Truck"]
   },
   {
     "id": 19,
@@ -187,7 +187,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": ["Toon"]
+    "tags": ["Toon", "Truck"]
   },
   {
     "id": 20,
@@ -197,7 +197,7 @@
     "condition": "SoldOut",
     "stock": 1,
     "type": "basic",
-    "tags": ["Toon"]
+    "tags": ["Toon", "Truck"]
   },
   {
     "id": 21,
@@ -227,7 +227,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": []
+    "tags": ["Truck"]
   },
   {
     "id": 24,
@@ -337,7 +337,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": ["Toon"]
+    "tags": ["Toon", "Truck"]
   },
   {
     "id": 35,
@@ -577,7 +577,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": ["Toon"]
+    "tags": ["Toon", "Truck"]
   },
   {
     "id": 59,
@@ -587,7 +587,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": ["Toon"]
+    "tags": ["Toon", "Truck"]
   },
   {
     "id": 60,
@@ -597,7 +597,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": ["Toon"]
+    "tags": ["Toon", "Truck"]
   },
   {
     "id": 61,
@@ -697,7 +697,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": []
+    "tags": ["Truck"]
   },
   {
     "id": 71,
@@ -707,7 +707,7 @@
     "condition": "New",
     "stock": 1,
     "type": "basic",
-    "tags": []
+    "tags": ["Truck"]
   },
   {
     "id": 72,
@@ -754,7 +754,7 @@
     "name": "Mad Propz (2023) (Orange)",
     "price": "150.000đ",
     "image": "images/product/thunt/thunt-1.jpg",
-    "condition": "SoldOut",
+    "condition": "New",
     "stock": 1,
     "type": "th",
     "tags": ["TREASURE HUNT"]
@@ -767,7 +767,7 @@
     "condition": "New",
     "stock": 2,
     "type": "th",
-    "tags": ["TREASURE HUNT"]
+    "tags": ["TREASURE HUNT", "Truck"]
   },
   {
     "id": 78,
@@ -787,7 +787,7 @@
     "condition": "SoldOut",
     "stock": 1,
     "type": "th",
-    "tags": ["TREASURE HUNT"]
+    "tags": ["TREASURE HUNT", "Truck"]
   },
   {
     "id": 80,
@@ -1031,6 +1031,16 @@
   },
   {
     "id": 104,
+    "name": "Treasure Hunt - Tooned Twin Mill (Black)",
+    "price": "110.000đ",
+    "image": "images/product/thunt/thunt-16.png",
+    "condition": "New",
+    "stock": 1,
+    "type": "th",
+    "tags": ["Toon", "TREASURE HUNT"]
+  },
+  {
+    "id": 105,
     "name": "MANGA TUNER (RED)",
     "price": "222.222đ",
     "image": "images/product/basic/basic-200k-1.png",
@@ -1040,7 +1050,7 @@
     "tags": ["Toon"]
   },
   {
-    "id": 105,
+    "id": 106,
     "name": "MANGA TUNER (Pink)",
     "price": "222.222đ",
     "image": "images/product/basic/basic-200k-2.png",
