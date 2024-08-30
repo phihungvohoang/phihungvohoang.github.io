@@ -106,3 +106,17 @@
 .img-hover-zoom--quick-zoom:hover img {
   transform: scale(2.5);
 }
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none; /* Optional: to ensure the element is hidden */
+  }
+}
+
+/* Class to apply the animation */
+.fade-out {
+  animation: fadeOut 1s forwards; /* Adjust duration as needed */
+}

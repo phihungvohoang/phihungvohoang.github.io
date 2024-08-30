@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let selectedType = null;
 
   // Fetch data from JSON file
-  fetch("./json/cars2.json")
+  fetch("./json/cars.json")
     .then((response) => response.json())
     .then((data) => {
       allCars = data;

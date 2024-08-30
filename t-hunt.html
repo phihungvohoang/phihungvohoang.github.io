@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List Treasure Hunt</title>
+    <meta name="description" content="HazelShop Hunt and trade Hot Wheels." />
+    <meta name="author" content="Hazel Vo aka Hùng đẹp trai" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="HotWheels Binh Duong" />
+    <meta
+      property="og:description"
+      content="HazelShop Hunt and trade Hot Wheels."
+    />
+    <meta
+      property="og:image"
+      content="https://phihungvohoang.github.io/images/logo/thumb.png"
+    />
+    <meta property="og:url" content="https://phihungvohoang.github.io" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="./images/s-hunt.png" type="image/png" />
+    <title></title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      .table img {
+        max-width: 100px;
+        height: auto;
+      }
+      .sidebar {
+        padding: 15px;
+        background-color: #f8f9fa;
+        border: 1px solid #ddd;
+        border-radius: 0.25rem;
+      }
+      .sidebar a {
+        display: block;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        color: #007bff;
+        text-decoration: none;
+      }
+      .sidebar a:hover {
+        background-color: #e9ecef;
+      }
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          display: none; /* Optional: to ensure the element is hidden */
+        }
+      }
+
+      /* Class to apply the animation */
+      .fade-out {
+        animation: fadeOut 1s forwards; /* Adjust duration as needed */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+
+    <div class="container mt-4">
+      <div class="alert alert-success mt-4" id="thongbao" role="alert">
+        <h4 class="alert-heading">Chào mừng bạn đến với HazelShop!</h4>
+        <p>
+          Shop nhận kí gửi, săn xe theo yêu cầu, re-sell vui lòng liên hệ theo
+          thông tin bên dưới để nhận giá tốt nhất.
+        </p>
+        <hr />
+        <p class="mb-0">Uy tín, chất lượng đặt lên hàng đầu</p>
+      </div>
+      <div class="row">
+        <!-- Main Content -->
+        <div class="col-md-10">
+          <!-- TH Table -->
+          <h3>
+            <img
+              src="images/t-hunt.webp"
+              alt="s-hunt"
+              width="50px"
+              height="auto"
+            />Treasure Hunt
+          </h3>
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Case</th>
+                <th>Year</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody id="table-th-body">
+              <!-- Data rows for TH will be inserted here -->
+            </tbody>
+          </table>
+
+          <!-- STH Table -->
+          <h3>
+            <img
+              src="images/s-hunt.png"
+              alt="s-hunt"
+              width="50px"
+              height="auto"
+            />Super Treasure Hunt
+          </h3>
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Case</th>
+                <th>Year</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody id="table-sth-body">
+              <!-- Data rows for STH will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+        <!-- Sidebar -->
+        <div class="col-md-2 sidebar">
+          <h4>Filter by Year</h4>
+          <a href="?year=2023">2023</a>
+          <a href="?year=2024">2024</a>
+          <a href="?year=2025">2025</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/th.js"></script>
+    <script>
+      setTimeout(function () {
+        var alertElement = document.getElementById("thongbao");
+        if (alertElement) {
+          alertElement.classList.add("fade-out");
+        }
+      }, 4000);
+      // Function to load HTML content into an element
+      function loadHTML(url, containerId) {
+        fetch(url)
+          .then((response) => response.text())
+          .then((html) => {
+            document.getElementById(containerId).innerHTML = html;
+          })
+          .catch((err) => console.warn("Error loading HTML:", err));
+      }
+
+      // Load the navbar when the DOM is fully loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        loadHTML("menubar.html", "navbar-container");
+      });
+    </script>
+  </body>
+</html>
