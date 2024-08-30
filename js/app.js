@@ -48,29 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedTags = selectedTag ? [selectedTag] : [];
         filterAndDisplayCars();
       });
-
-      // Handle clicks on new list items
-      document
-        .querySelector('a[href="#basic"]')
-        .addEventListener("click", function (event) {
-          event.preventDefault();
-          selectedType = "basic";
-          filterAndDisplayCars();
-        });
-      document
-        .querySelector('a[href="#th"]')
-        .addEventListener("click", function (event) {
-          event.preventDefault();
-          selectedType = "th";
-          filterAndDisplayCars();
-        });
-      document
-        .querySelector('a[href="#sth"]')
-        .addEventListener("click", function (event) {
-          event.preventDefault();
-          selectedType = "sth";
-          filterAndDisplayCars();
-        });
       sortBySelect.value = "newest"; // Default sort option
       filterAndDisplayCars();
     })
@@ -93,11 +70,12 @@ document.addEventListener("DOMContentLoaded", function () {
               <img src="${car.image}" class="card-img-top" alt="${car.name}">
             </div>
             <div class="card-body">
-                <h5 class="card-title">${car.name}</h5>
+                <h5 class="card-title">${car.name} </h5>
                 <p class="card-text price ${car.condition}">${car.price}</p>
               <div class="card-details">
                 <p class="card-text condition  ${car.condition}">${car.condition}</p>
-                <p class="card-text stock">Stock: ${car.stock}</p>
+                <p class="badge badge-primary">Stock: ${car.stock}</p>
+
               </div>
             </div>
           </div>
