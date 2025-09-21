@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tính lợi nhuận Shopee</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container">
+
+    <!-- LOGO -->
+    <div class="text-center mb-4">
+      <img src="https://phihung.store/images/logo_hazel.png" alt="Logo Hazel" style="height: 200px;">
+    </div>
+
+    <h2 class="mb-4 text-center">📦 Tính lợi nhuận Shopee</h2>
+
+    <!-- Giá vốn + Giá bán -->
+    <div class="row g-3">
+      <div class="col-md-4">
+        <label for="costPrice" class="form-label">Giá vốn (₫)</label>
+        <input type="number" class="form-control" id="costPrice" placeholder="VD: 10000">
+      </div>
+      <div class="col-md-4">
+        <label for="sellPrice" class="form-label">Giá bán (₫)</label>
+        <input type="number" class="form-control" id="sellPrice" placeholder="VD: 20000">
+      </div>
+    </div>
+
+    <!-- Thiết lập phí -->
+    <h5 class="mt-4">⚙️ Thiết lập phí</h5>
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label class="form-label">Phí Shopee (%)</label>
+        <input type="number" class="form-control" id="feeShopeePercent" value="15">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Phí Voucher (%)</label>
+        <input type="number" class="form-control" id="feeVoucherPercent" value="3">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Thuế (%)</label>
+        <input type="number" class="form-control" id="feeTaxPercent" value="1.5">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Pi Ship (₫)</label>
+        <input type="number" class="form-control" id="shippingFeeValue" value="1650">
+      </div>
+    </div>
+
+    <!-- Vật tư đóng gói -->
+    <h5 class="mt-4">📦 Vật tư đóng gói</h5>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <label class="form-label">Tiền hộp (₫)</label>
+        <input type="number" class="form-control" id="boxCost" value="1000">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Giá vật tư khác (băng keo, thư...)</label>
+        <input type="number" class="form-control" id="materialCost" value="1000">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Giá quà tặng (tùy chọn)</label>
+        <input type="number" class="form-control" id="giftCost" placeholder="VD: 500">
+      </div>
+    </div>
+
+    <!-- Nút tính toán -->
+    <div class="mt-4">
+      <button class="btn btn-primary" onclick="calculateProfit()">Tính lợi nhuận</button>
+    </div>
+
+    <!-- Kết quả -->
+    <div class="mt-4" id="result" style="display:none;">
+      <h5>Kết quả:</h5>
+      <p><strong>Phí Shopee:</strong> <span id="feeShopee">₫0</span></p>
+      <p><strong>Phí Voucher:</strong> <span id="feeVoucher">₫0</span></p>
+      <p><strong>Thuế:</strong> <span id="feeTax">₫0</span></p>
+      <p><strong>Pi Ship:</strong> <span id="shippingFee">₫0</span></p>
+      <p><strong>Chi phí hộp:</strong> <span id="boxFee">₫0</span></p>
+      <p><strong>Chi phí vật tư khác:</strong> <span id="materialFee">₫0</span></p>
+      <p><strong>Chi phí quà tặng:</strong> <span id="giftFee">₫0</span></p>
+      <hr>
+      <p><strong>Tổng phí:</strong> <span id="totalFee">₫0</span></p>
+      <p><strong>Lợi nhuận thuần:</strong> <span id="profitValue">₫0</span></p>
+    </div>
+  </div>
+
+  <script>
+    function formatCurrency(amount) {
+      return new Intl.NumberFormat('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+      }).format(amount);
+    }
+
+    function calculateProfit() {
+      const costPrice = parseFloat(document.getElementById('costPrice').value);
+      const sellPrice = parseFloat(document.getElementById('sellPrice').value);
+
+      const feeShopeePercent = parseFloat(document.getElementById('feeShopeePercent').value) || 0;
+      const feeVoucherPercent = parseFloat(document.getElementById('feeVoucherPercent').value) || 0;
+      const feeTaxPercent = parseFloat(document.getElementById('feeTaxPercent').value) || 0;
+      const shippingFee = parseFloat(document.getElementById('shippingFeeValue').value) || 0;
+
+      const boxCost = parseFloat(document.getElementById('boxCost').value) || 0;
+      const materialCost = parseFloat(document.getElementById('materialCost').value) || 0;
+      const giftCost = parseFloat(document.getElementById('giftCost').value) || 0;
+
+      if (isNaN(costPrice) || isNaN(sellPrice)) {
+        alert("Vui lòng nhập đầy đủ giá vốn và giá bán.");
+        return;
+      }
+
+      const feeShopee = sellPrice * (feeShopeePercent / 100);
+      const feeVoucher = sellPrice * (feeVoucherPercent / 100);
+      const feeTax = sellPrice * (feeTaxPercent / 100);
+      const totalFee = feeShopee + feeVoucher + feeTax + shippingFee + boxCost + materialCost + giftCost;
+      const profit = sellPrice - totalFee - costPrice;
+
+      // Hiển thị kết quả
+      document.getElementById('feeShopee').textContent = formatCurrency(feeShopee);
+      document.getElementById('feeVoucher').textContent = formatCurrency(feeVoucher);
+      document.getElementById('feeTax').textContent = formatCurrency(feeTax);
+      document.getElementById('shippingFee').textContent = formatCurrency(shippingFee);
+      document.getElementById('boxFee').textContent = formatCurrency(boxCost);
+      document.getElementById('materialFee').textContent = formatCurrency(materialCost);
+      document.getElementById('giftFee').textContent = formatCurrency(giftCost);
+      document.getElementById('totalFee').textContent = formatCurrency(totalFee);
+      document.getElementById('profitValue').textContent = formatCurrency(profit);
+      document.getElementById('result').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
