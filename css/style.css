@@ -1,0 +1,122 @@
+.scroll_top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none; /* Initially hidden */
+}
+.card {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #ddd; /* Light border for better separation */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Ensures content doesn't overflow the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift card on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px; /* Adjusted to keep consistency */
+  object-fit: scale-down; /* Ensure image covers the area without distortion */
+}
+
+.card-body {
+  flex: 1;
+  padding: 0px 15px; /* Increased padding for a more spacious look */
+  border-top: 1px solid #e8e8e8;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out content */
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  font-size: 1.25rem; /* Slightly larger title */
+  margin-bottom: 10px; /* Space below title */
+  font-weight: bold;
+}
+
+.card-text {
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  color: #4caf50; /* Green color for price */
+  font-weight: bold;
+  font-size: 1.1rem; /* Slightly larger price */
+}
+
+.condition,
+.stock {
+  color: #666; /* Subtle color for condition and stock */
+  font-size: 0.9rem; /* Slightly smaller font size */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Increased gap for better spacing */
+  justify-content: center; /* Center cards in container */
+}
+
+.alert-warning {
+  margin: 20px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.search-bar {
+  margin: 20px 0px;
+}
+
+.nav-item.active .nav-link {
+  font-weight: bold;
+}
+
+.New {
+  color: #4caf50;
+}
+.Cracked {
+  color: #ffb300;
+}
+.SoldOut {
+  text-decoration: line-through;
+  color: #ed213a;
+}
+/* Quick-zoom Container */
+.img-hover-zoom--quick-zoom img {
+  transform-origin: center center; /* Center of the image */
+  transition: transform 0.25s, visibility 0.25s ease-in;
+}
+
+/* The Transformation */
+.img-hover-zoom--quick-zoom:hover img {
+  transform: scale(2.5);
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none; /* Optional: to ensure the element is hidden */
+  }
+}
+
+/* Class to apply the animation */
+.fade-out {
+  animation: fadeOut 1s forwards; /* Adjust duration as needed */
+}

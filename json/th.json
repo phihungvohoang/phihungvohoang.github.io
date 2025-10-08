@@ -1,0 +1,422 @@
+[
+  {
+    "name": "Raijin Express",
+    "case": "Case A",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/9/93/HW-2023-010-1-HKK98-Raijin_Express1.jpg",
+    "type": "th"
+  },
+  {
+    "name": "urf Crate",
+    "case": "Case B",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/5/55/HKL06.jpg",
+    "type": "th"
+  },
+  {
+    "name": "BMW R nineT Racer",
+    "case": "Case C",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/5/55/BMWRnineTRacer.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Mad Propz",
+    "case": "Case D",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/d/dd/PropZ.JPG",
+    "type": "th"
+  },
+  {
+    "name": "Mod Rod",
+    "case": "Case E",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/5/56/ModRod_2022_HWRaceTeam.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Donut Drifter",
+    "case": "Case F",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/3/3e/HKK97.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Rise 'N Climb",
+    "case": "Case G",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/e/e8/HKL03.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Ducati 1199 Panigale",
+    "case": "Case H",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/4/4f/164_-_Ducati_1199_Panigale_%28TH%29.jpg",
+    "type": "th"
+  },
+  {
+    "name": "'95 Jeep Cherokee",
+    "case": "Case J",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/e/e5/HKL02-LOOSE.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Toyota Land Cruiser",
+    "case": "Case K",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/4/46/Then_and_Now_Toyota_Land_Cruiser.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Madfast",
+    "case": "Case L",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/5/5b/MadfastDragster.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Time Shifter",
+    "case": "Case M",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/4/45/HKK94-LOOSE.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Tooned Volkswagen Golf Mk1",
+    "case": "Case N",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/9/96/2023-221_HKK96_Tooned_Golf_mk1_Blue_TH_open-00.jpg",
+    "type": "th"
+  },
+  {
+    "name": "2020 Ram 1500 Rebel",
+    "case": "Case P",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/4/44/CoastPatrolRam.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Volkswagen 'Baja Bug'",
+    "case": "Case Q",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/c/c3/2023-241_HKK93_TH_Volkswagen_Baja_Bug_Red_open-1.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Classic TV Series Batmobile",
+    "case": "Case A",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/e/e8/STH_2023A_BATMOBILE.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Mercedes-Benz 300 SL",
+    "case": "Case B",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/b/bd/Mercedes-benzs300sl.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'68 COPO Camaro",
+    "case": "Case C",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/8/8c/%2768COPOCamaro.webp.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Lotus Evija",
+    "case": "Case D",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/3/3a/78bccf5402cbd84fbcf3691f00711b5.webp.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "1968 Mazda Cosmo Sport",
+    "case": "Case E",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/2/2d/Mazda_cosmo.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Renault Sport R.S. 01",
+    "case": "Case F",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/a/ab/Renault_sport_rs.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'68 Corvette - Gas Monkey Garage",
+    "case": "Case G",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/1/1d/Monkey_garage.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Glory Chaser",
+    "case": "Case H",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/3/33/Glory_chaser.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'82 Toyota Supra",
+    "case": "Case J",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/6/68/%2782_toyota_supra.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'69 Shelby GT-500",
+    "case": "Case K",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/b/ba/7b52a96a15ff809ca101aee1320d186.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'65 Mercury Comet Cyclone",
+    "case": "Case L",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/5/56/2023_07_07_21_24_IMG_8258.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Mighty K",
+    "case": "Case M",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/1/1a/2023_07_07_21_22_IMG_8250.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Porsche 935",
+    "case": "Case N",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/d/df/2023_07_07_21_25_IMG_8265.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Datsun Bluebird Wagon (510)",
+    "case": "Case P",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/b/be/73d9e391cee5f2365232c195406643f.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Volvo 240 Drift Wagon",
+    "case": "Case Q",
+    "year": 2023,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/0/08/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230730215614.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'47 Chevy Fleetline ",
+    "case": "Case A",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/f/f8/ChevroletFleetline.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Ain't Fare ",
+    "case": "Case B",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/8/80/WorldTourFare.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Tooligan ",
+    "case": "Case C",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/a/a3/HWTooligan.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Custom '53 Chevy ",
+    "case": "Case D",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/b/b7/HTF18-LOOSE.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Batman Forever Batmobile",
+    "case": "Case E",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/f/f6/2024_E_Case_TH.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Ford Mustang Mach-E 1400 ",
+    "case": "Case F",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/4/43/F_Case_2024_TH.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Draggin' Wagon ",
+    "case": "Case G",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/e/e5/HTF21-LOOSE.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Purple Passion ",
+    "case": "Case H",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/5/5e/ArtPassion.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Honda Super Cub Custom ",
+    "case": "Case J",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/0/00/159_2024_SC_TH_Honda_Super_Cub_Custom.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Bone Shaker ",
+    "case": "Case K",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/0/04/2024-183_HTF24_Bone_Shaker_TH_open-2-5.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Car-de-Asada ",
+    "case": "Case L",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/e/e0/CarDeAsada.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Hot Wheels Ford Transit Connect ",
+    "case": "Case M",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/f/f3/FordTransitFlowerVan.jpg",
+    "type": "th"
+  },
+  {
+    "name": "DMC DeLorean ",
+    "case": "Case N",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/4/48/RollingDeLorean.jpg",
+    "type": "th"
+  },
+  {
+    "name": "'59 Chevy Impala ",
+    "case": "Case P",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/4/48/RollingDeLorean.jpg/1",
+    "type": "th"
+  },
+  {
+    "name": "Porsche 928S Safari ",
+    "case": "Case Q",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/2/24/1977Porsche928Safari.jpg",
+    "type": "th"
+  },
+  {
+    "name": "Ford Escort RS2000",
+    "case": "Case A",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/a/a4/2024_STH_A_CASE_FOERD_ESCORT_RS2000.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'18 Camaro SS",
+    "case": "Case B",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/1/15/2024_STH_B_CASE_18_Camaro_SS.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "BMW 507",
+    "case": "Case C",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/7/7e/2024_STH_C_CASE_BMW_507.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'89 Mercedes-Benz 560 SEC AMG",
+    "case": "Case D",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/7/7c/2024_STH_D_CASE_benz_560.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'60s Fiat 500D Modificado",
+    "case": "Case E",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/f/fb/2024_STH_E_CASE_FIAT_500.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'71 El Camino",
+    "case": "Case F",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/1/1b/2024_STH_E_CASE_EL_CAMINO.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Audi 90 quattro",
+    "case": "Case G",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/a/ab/AUDI_90_QUATTRO.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Volvo P1800 Gasser",
+    "case": "Case H",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/e/e1/VOLVO_P1800_GASSER01.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Mitsubishi Pajero Evolution",
+    "case": "Case J",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/8/82/PAJERO.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Mazda 787B",
+    "case": "Case K",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/b/b5/Charge787BSTH.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'77 Pontiac Firebird T/A",
+    "case": "Case L",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/7/78/Pontiac_firebird.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'96 Nissan 180SX Type X",
+    "case": "Case M",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/e/e1/96_Nissan_180sx_type_R.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Celero GT",
+    "case": "Case N",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/4/42/Tiaozi-%E5%A1%9E%E7%BD%97GT%E8%B6%85%E5%AE%9D.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "Lamborghini Huracán LP 620-2 Super Trofeo",
+    "case": "Case P",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/f/f1/%E6%9D%A1%E5%AD%90%E8%BD%A6%E6%A8%A1-%E5%85%B0%E5%8D%9A%E5%9F%BA%E5%B0%BC%E8%B6%85%E5%AE%9D.jpg",
+    "type": "sth"
+  },
+  {
+    "name": "'83 Chevy Silverado",
+    "case": "Case Q",
+    "year": 2024,
+    "image": "https://static.wikia.nocookie.net/hotwheels/images/2/2c/Silverado_sth.jpg",
+    "type": "sth"
+  }
+]
