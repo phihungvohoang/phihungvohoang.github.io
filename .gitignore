@@ -1,7 +1,10 @@
 # Hệ điều hành
 .DS_Store
 Thumbs.db
+
+# Thư mục dữ liệu & API backend
 json/
 add.php
-edit.php save_order.php
+edit.php
+save_order.php
 view_orders.php
