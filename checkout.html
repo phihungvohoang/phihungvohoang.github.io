@@ -12,6 +12,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <link rel="icon" href="./images/s-hunt.png" type="image/png" />
+
     <style>
       :root {
         --hw-red: #e62117;
@@ -26,13 +28,17 @@
         position: sticky;
         top: 90px;
       }
+      .text-yellow {
+        color: black !important;
+        background-color: #ffcc00 !important;
+      }
     </style>
   </head>
   <body class="bg-light">
     <nav class="navbar navbar-dark bg-dark mb-4">
       <div class="container">
-        <a class="navbar-brand fw-bold text-danger" href="index.html"
-          >HAZEL <span class="text-white">SHOP</span></a
+        <a class="navbar-brand fw-bold text-white" href="index.html"
+          >HAZEL <span class="text-yellow">SHOP</span></a
         >
         <a href="index.html" class="btn btn-outline-light btn-sm"
           >Tiếp tục mua sắm</a
@@ -91,13 +97,14 @@
                   </div>
                   <div class="col-md-6 mb-3">
                     <label class="form-label small fw-bold"
-                      >Email (không bắt buộc)</label
+                      >Email (bắt buộc)</label
                     >
                     <input
                       type="email"
                       name="email"
                       class="form-control"
                       placeholder="vidu@gmail.com"
+                      required
                     />
                   </div>
                 </div>
@@ -169,7 +176,9 @@
 
       async function init() {
         try {
-          const response = await fetch("./json/data.json");
+          const response = await fetch(
+            "https://web.kcnvietnam.com/it-asset/api/products.php",
+          );
           allProducts = await response.json();
           renderCart();
         } catch (error) {
@@ -267,11 +276,14 @@
         };
 
         try {
-          const response = await fetch("save_order.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(orderData),
-          });
+          const response = await fetch(
+            "https://web.kcnvietnam.com/it-asset/api/save_order.php",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(orderData),
+            },
+          );
 
           if (response.ok) {
             alert("Đặt hàng thành công! Cảm ơn bạn đã ủng hộ.");

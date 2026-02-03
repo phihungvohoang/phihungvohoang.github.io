@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hazel Shop - Hot Wheels Collections</title>
+    <meta name="description" content="HazelShop Hunt and trade Hot Wheels." />
+    <meta name="author" content="Hazel Vo aka Hùng đẹp trai" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="HotWheels Binh Duong" />
+    <meta
+      property="og:description"
+      content="HazelShop Hunt and trade Hot Wheels."
+    />
+    <meta property="og:image" content="./images/s-hunt.png" />
+    <meta property="og:url" content="https://phihungvohoang.github.io" />
+    <meta property="og:type" content="website" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,6 +23,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <link rel="icon" href="./images/s-hunt.png" type="image/png" />
     <style>
       /* ... DU DI ME MAY ... */
       :root {
@@ -160,6 +172,33 @@
 
     <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script>
     <script>
+      window.addEventListener("load", function () {
+        const fullLoader = document.querySelector(".blockLoadWeb");
+        const miniLoader = document.querySelector(".blockLoading");
+
+        // Khóa scroll khi đang load
+        document.documentElement.classList.add("disabled");
+        document.body.classList.add("disabled");
+
+        setTimeout(() => {
+          fullLoader.classList.remove("active");
+          miniLoader.classList.remove("active");
+
+          document.documentElement.classList.remove("disabled");
+          document.body.classList.remove("disabled");
+        }, 2600); // khớp animation progress
+      });
+    </script>
+
+    <script>
+      function loadHTML(url, containerId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById(containerId).innerHTML = html;
+          })
+          .catch(err => console.warn("Error loading HTML:", err));
+      }
       let currentSearchKeyword = "";
       let products = [];
       let filters = {
@@ -170,11 +209,15 @@
       };
 
       fetch("https://web.kcnvietnam.com/it-asset/api/products.php")
-        .then(res => res.json())
+        .then(res => {
+          if (!res.ok) throw new Error("API lỗi");
+          return res.json();
+        })
         .then(data => {
+          if (!Array.isArray(data)) throw new Error("Data không hợp lệ");
+
           products = data.sort(() => Math.random() - 0.5);
 
-          // --- LOGIC MỚI: Đọc từ khóa từ URL ---
           const urlParams = new URLSearchParams(window.location.search);
           const searchKeyword = urlParams.get("s");
 
@@ -182,15 +225,15 @@
             currentSearchKeyword = searchKeyword.trim().toLowerCase();
             document.getElementById("searchInput").value = searchKeyword;
           }
-          // ---------------------------------------
 
-          renderFilters(data);
+          renderFilters(products);
           applyFiltersAndSort();
           updateCartCount();
         })
         .catch(err => {
+          console.error(err);
           document.getElementById("productGrid").innerHTML =
-            `<div class="alert alert-warning text-center">Lỗi tải dữ liệu.</div>`;
+            `<div class="alert alert-warning text-center">Không tải được sản phẩm.</div>`;
         });
 
       function renderFilters(data) {
@@ -215,6 +258,10 @@
       }
 
       function applyFiltersAndSort() {
+        const keyword =
+          currentSearchKeyword ||
+          document.getElementById("searchInput").value.trim().toLowerCase();
+
         let result = products.filter(p => {
           const matchType =
             filters.type === "All" || p.tag.type === filters.type;
@@ -224,9 +271,7 @@
             filters.color === "All" || p.tag.color === filters.color;
           const matchBrand =
             filters.brand === "All" || p.tag.brand === filters.brand;
-          const keyword = currentSearchKeyword;
 
-          // Kiểm tra logic tìm kiếm trong tên, mô tả và toàn bộ tags
           const matchSearch =
             p.name.toLowerCase().includes(keyword) ||
             p.description.toLowerCase().includes(keyword) ||
@@ -298,9 +343,10 @@
 
       function quickAdd(id) {
         let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-        cart.push(id);
+        cart.push(String(id));
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartCount();
+
         const cartBtn = document.querySelector(".floating-cart");
         cartBtn.style.transform = "scale(1.2)";
         setTimeout(() => (cartBtn.style.transform = "scale(1)"), 200);

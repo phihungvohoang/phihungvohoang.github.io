@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <link rel="icon" href="./images/s-hunt.png" type="image/png" />
     <style>
       :root {
         --hw-red: #e62117;
@@ -51,13 +52,17 @@
       .breadcrumb-item + .breadcrumb-item::before {
         content: ">";
       }
+      .text-yellow {
+        color: black !important;
+        background-color: #ffcc00 !important;
+      }
     </style>
   </head>
   <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold text-danger" href="index.html"
-          >HAZEL <span class="text-white">SHOP</span></a
+        <a class="navbar-brand fw-bold text-white" href="index.html"
+          >HAZEL <span class="text-yellow">SHOP</span></a
         >
         <div class="d-flex align-items-center">
           <a href="index.html" class="btn btn-outline-light me-3 btn-sm"
@@ -101,7 +106,7 @@
       const urlParams = new URLSearchParams(window.location.search);
       const sku = urlParams.get("sku");
 
-      fetch("./json/data.json")
+      fetch("https://web.kcnvietnam.com/it-asset/api/products.php")
         .then(res => res.json())
         .then(data => {
           // Lưu ý: SKU trong JSON mới là số, trong URL là chuỗi nên dùng == hoặc ép kiểu
@@ -167,11 +172,10 @@
                 <h6 class="fw-bold">Mô tả sản phẩm:</h6>
                 <p class="text-secondary mb-4" style="line-height: 1.6;">${p.description || "Chưa có mô tả chi tiết cho sản phẩm này."}</p>
                 
-                <div class="d-grid gap-2 d-md-flex mt-4">
+                <div class="d-grid gap-2 mt-4">
                     <button class="btn btn-dark btn-lg px-5 shadow-sm" onclick="addToCart('${p.id}')">
                         <i class="fa fa-cart-plus me-2"></i> Thêm giỏ hàng
                     </button>
-                    <a href="checkout.html" class="btn btn-danger btn-lg px-5 shadow-sm">Thanh toán ngay</a>
                 </div>
             </div>
         `;
