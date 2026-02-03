@@ -1,0 +1,7 @@
+# Hệ điều hành
+.DS_Store
+Thumbs.db
+json/
+add.php
+edit.php save_order.php
+view_orders.php

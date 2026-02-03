@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết sản phẩm - Hazel Shop</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --hw-red: #e62117;
+      }
+      .thumb-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: 0.3s;
+        background: #fff;
+      }
+      .thumb-img:hover,
+      .thumb-img.active {
+        border-color: var(--hw-red);
+      }
+      #mainImg {
+        width: 100%;
+        height: 500px;
+        object-fit: contain;
+        background: #fff;
+        border-radius: 8px;
+      }
+      .product-suggest-card img {
+        height: 180px;
+        object-fit: cover;
+        transition: 0.3s;
+      }
+      .product-suggest-card:hover img {
+        transform: scale(1.05);
+      }
+      .badge-custom {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+      }
+      .breadcrumb-item + .breadcrumb-item::before {
+        content: ">";
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-danger" href="index.html"
+          >HAZEL <span class="text-white">SHOP</span></a
+        >
+        <div class="d-flex align-items-center">
+          <a href="index.html" class="btn btn-outline-light me-3 btn-sm"
+            >Quay lại</a
+          >
+          <a
+            href="checkout.html"
+            class="btn btn-warning position-relative btn-sm"
+          >
+            <i class="fa fa-shopping-cart"></i>
+            <span
+              id="cartCount"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              >0</span
+            >
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <div class="row bg-white p-4 rounded shadow-sm" id="productDetail">
+        <div class="col-12 text-center py-5">
+          <div class="spinner-border text-danger"></div>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <h4 class="mb-4 fw-bold">
+          <i class="fa fa-layer-group text-danger"></i> Có thể bạn thích
+        </h4>
+        <div
+          class="row row-cols-2 row-cols-md-4 g-4"
+          id="suggestedProducts"
+        ></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const sku = urlParams.get("sku");
+
+      fetch("./json/data.json")
+        .then(res => res.json())
+        .then(data => {
+          // Lưu ý: SKU trong JSON mới là số, trong URL là chuỗi nên dùng == hoặc ép kiểu
+          const product = data.find(p => p.id == sku);
+          if (!product) {
+            document.getElementById("productDetail").innerHTML =
+              `<h3 class="text-center py-5">Sản phẩm không tồn tại!</h3>`;
+            return;
+          }
+
+          renderMainProduct(product);
+
+          // Logic gợi ý: Lọc các xe cùng Type hoặc cùng Color (trừ chính nó)
+          const suggested = data.filter(
+            item =>
+              item.id != product.id &&
+              (item.tag.type === product.tag.type ||
+                (product.tag.color && item.tag.color === product.tag.color)),
+          );
+
+          renderSuggestions(suggested);
+          updateCartCount();
+        });
+
+      function renderMainProduct(p) {
+        const detailDiv = document.getElementById("productDetail");
+        const images = [p.img1, p.img2, p.img3, p.img4, p.img5].filter(
+          img => img && img.trim() !== "",
+        );
+
+        detailDiv.innerHTML = `
+            <div class="col-md-6 mb-4 text-center">
+                <img src="${p.img1}" id="mainImg" class="img-fluid border mb-3 shadow-sm">
+                <div class="d-flex gap-2 overflow-auto justify-content-center pb-2">
+                    ${images
+                      .map(
+                        (img, index) => `
+                        <img src="${img}" class="thumb-img rounded border ${index === 0 ? "active" : ""}" 
+                             onclick="changeImg(this, '${img}')">
+                    `,
+                      )
+                      .join("")}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb small">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Trang chủ</a></li>
+                        <li class="breadcrumb-item active text-muted">${p.tag.type || "Sản phẩm"}</li>
+                    </ol>
+                </nav>
+                <h1 class="h2 fw-bold mb-2">${p.name}</h1>
+                <div class="mb-3">
+                    ${p.tag.type ? `<span class="badge bg-danger badge-custom me-1">${p.tag.type}</span>` : ""}
+                    ${p.tag.category ? `<span class="badge bg-dark badge-custom me-1">${p.tag.category}</span>` : ""}
+                    ${p.tag.color ? `<span class="badge bg-secondary badge-custom">${p.tag.color}</span>` : ""}
+                </div>
+                <h2 class="text-danger fw-bold mb-4">${Number(p.price).toLocaleString()}đ</h2>
+                <div class="bg-light p-3 rounded mb-4">
+                    <p class="mb-1 small text-muted">Mã SKU: <span class="text-dark fw-bold">${p.id}</span></p>
+                    <p class="mb-0 small text-muted">Tình trạng: <span class="text-success fw-bold">${p.qty > 0 ? "Còn hàng" : "Hết hàng"}</span></p>
+                </div>
+                <h6 class="fw-bold">Mô tả sản phẩm:</h6>
+                <p class="text-secondary mb-4" style="line-height: 1.6;">${p.description || "Chưa có mô tả chi tiết cho sản phẩm này."}</p>
+                
+                <div class="d-grid gap-2 d-md-flex mt-4">
+                    <button class="btn btn-dark btn-lg px-5 shadow-sm" onclick="addToCart('${p.id}')">
+                        <i class="fa fa-cart-plus me-2"></i> Thêm giỏ hàng
+                    </button>
+                    <a href="checkout.html" class="btn btn-danger btn-lg px-5 shadow-sm">Thanh toán ngay</a>
+                </div>
+            </div>
+        `;
+      }
+
+      function renderSuggestions(list) {
+        const suggestDiv = document.getElementById("suggestedProducts");
+        if (list.length === 0) {
+          suggestDiv.innerHTML =
+            '<div class="col-12"><p class="text-muted">Không có sản phẩm tương tự hiện có.</p></div>';
+          return;
+        }
+
+        const shuffle = list.sort(() => 0.5 - Math.random()).slice(0, 4);
+
+        suggestDiv.innerHTML = shuffle
+          .map(
+            p => `
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 product-suggest-card">
+                    <a href="details.html?sku=${p.id}" class="overflow-hidden rounded-top bg-white text-center">
+                        <img data-src="${p.img1}" class="card-img-top lazyload w-100" style="object-fit: contain; height: 180px;" alt="${p.name}">
+                    </a>
+                    <div class="card-body p-2 text-center">
+                        <small class="text-muted d-block mb-1">${p.tag.type} ${p.tag.color ? "| " + p.tag.color : ""}</small>
+                        <h6 class="card-title text-truncate fw-bold mb-2" style="font-size: 0.9rem;">${p.name}</h6>
+                        <p class="text-danger small fw-bold mb-0">${Number(p.price).toLocaleString()}đ</p>
+                    </div>
+                </div>
+            </div>
+        `,
+          )
+          .join("");
+      }
+
+      function changeImg(el, src) {
+        document.getElementById("mainImg").src = src;
+        document
+          .querySelectorAll(".thumb-img")
+          .forEach(img => img.classList.remove("active"));
+        el.classList.add("active");
+      }
+
+      function addToCart(id) {
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        cart.push(id);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+        alert("Đã thêm vào giỏ hàng!");
+      }
+
+      function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const badge = document.getElementById("cartCount");
+        if (badge) badge.innerText = cart.length;
+      }
+    </script>
+  </body>
+</html>

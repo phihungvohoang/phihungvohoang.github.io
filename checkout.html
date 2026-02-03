@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh toán - Hazel Shop</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --hw-red: #e62117;
+      }
+      .product-img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+      .summary-card {
+        position: sticky;
+        top: 90px;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-danger" href="index.html"
+          >HAZEL <span class="text-white">SHOP</span></a
+        >
+        <a href="index.html" class="btn btn-outline-light btn-sm"
+          >Tiếp tục mua sắm</a
+        >
+      </div>
+    </nav>
+
+    <div class="container mb-5">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="card shadow-sm border-0 mb-4">
+            <div class="card-header bg-white fw-bold">
+              Giỏ hàng của bạn (<span id="cartCount">0</span>)
+            </div>
+            <div class="card-body p-0" id="cartItems">
+              <div class="text-center py-5">
+                <p class="text-muted">Giỏ hàng trống.</p>
+              </div>
+            </div>
+            <div class="card-footer bg-white text-end">
+              <button
+                class="btn btn-sm btn-outline-secondary"
+                onclick="clearCart()"
+              >
+                Xóa tất cả
+              </button>
+            </div>
+          </div>
+
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-white fw-bold">Thông tin giao hàng</div>
+            <div class="card-body">
+              <form id="checkoutForm">
+                <div class="mb-3">
+                  <label class="form-label small fw-bold">Họ và tên</label>
+                  <input
+                    type="text"
+                    name="customer_name"
+                    class="form-control"
+                    required
+                    placeholder="Nguyễn Văn A"
+                  />
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label small fw-bold"
+                      >Số điện thoại</label
+                    >
+                    <input
+                      type="tel"
+                      name="phone"
+                      class="form-control"
+                      required
+                      placeholder="090xxxxxxx"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label class="form-label small fw-bold"
+                      >Email (không bắt buộc)</label
+                    >
+                    <input
+                      type="email"
+                      name="email"
+                      class="form-control"
+                      placeholder="vidu@gmail.com"
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label small fw-bold"
+                    >Địa chỉ nhận hàng</label
+                  >
+                  <textarea
+                    name="address"
+                    class="form-control"
+                    rows="2"
+                    required
+                    placeholder="Số nhà, tên đường, phường/xã..."
+                  ></textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label small fw-bold"
+                    >Ghi chú đơn hàng</label
+                  >
+                  <textarea
+                    name="note"
+                    class="form-control"
+                    rows="1"
+                  ></textarea>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card shadow-sm border-0 summary-card">
+            <div class="card-body">
+              <h5 class="fw-bold mb-4">Tổng cộng</h5>
+              <div class="d-flex justify-content-between mb-2">
+                <span>Tạm tính</span>
+                <span id="subtotal">0đ</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <span>Phí vận chuyển</span>
+                <span class="text-success">+15.000đ</span>
+              </div>
+              <hr />
+              <div class="d-flex justify-content-between mb-4">
+                <span class="fw-bold fs-5">Thành tiền</span>
+                <span class="fw-bold fs-5 text-danger" id="totalOrder">0đ</span>
+              </div>
+              <button
+                type="button"
+                onclick="submitOrder()"
+                class="btn btn-danger w-100 py-3 fw-bold shadow"
+              >
+                XÁC NHẬN ĐẶT HÀNG
+              </button>
+              <p class="text-center text-muted small mt-3">
+                Lưu ý: Shop có thể hủy đơn mà không cần báo trước nếu sản phẩm
+                hết hàng!!
+                <i class="fa fa-shield-alt"></i> Bảo mật thông tin khách hàng
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let allProducts = [];
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+      async function init() {
+        try {
+          const response = await fetch("./json/data.json");
+          allProducts = await response.json();
+          renderCart();
+        } catch (error) {
+          console.error("Lỗi tải dữ liệu sản phẩm:", error);
+        }
+      }
+
+      function renderCart() {
+        const container = document.getElementById("cartItems");
+        const cartCount = document.getElementById("cartCount");
+        const shippingFee = 15000;
+        const subtotalEl = document.getElementById("subtotal");
+        const totalOrderEl = document.getElementById("totalOrder");
+
+        if (cart.length === 0) {
+          container.innerHTML = `<div class="text-center py-5"><p class="text-muted">Giỏ hàng trống.</p><a href="index.html" class="btn btn-sm btn-danger">Mua sắm ngay</a></div>`;
+          cartCount.innerText = 0;
+          subtotalEl.innerText = "0đ";
+          totalOrderEl.innerText = "0đ";
+          return;
+        }
+
+        const counts = {};
+        cart.forEach(id => (counts[id] = (counts[id] || 0) + 1));
+
+        let subtotal = 0;
+        let html = '<ul class="list-group list-group-flush">';
+
+        for (const id in counts) {
+          // So khớp id (ép kiểu về string/number tùy data)
+          const product = allProducts.find(p => p.id == id);
+          if (product) {
+            const itemTotal = product.price * counts[id];
+            subtotal += itemTotal;
+            html += `
+                <li class="list-group-item d-flex align-items-center py-3">
+                    <img src="${product.img1}" class="product-img me-3">
+                    <div class="flex-grow-1">
+                        <h6 class="mb-0 small fw-bold">${product.name}</h6>
+                        <small class="text-muted">${Number(product.price).toLocaleString()}đ x ${counts[id]}</small>
+                    </div>
+                    <div class="text-end">
+                        <div class="fw-bold">${Number(itemTotal).toLocaleString()}đ</div>
+                        <button class="btn btn-link btn-sm text-danger p-0" onclick="removeFromCart('${id}')">Xóa</button>
+                    </div>
+                </li>`;
+          }
+        }
+        html += "</ul>";
+        container.innerHTML = html;
+        cartCount.innerText = cart.length;
+
+        // Cập nhật hiển thị tiền
+        subtotalEl.innerText = subtotal.toLocaleString() + "đ";
+        totalOrderEl.innerText =
+          (subtotal + shippingFee).toLocaleString() + "đ";
+      }
+
+      function removeFromCart(id) {
+        // Xóa tất cả các item có cùng ID này hoặc chỉ xóa 1 tùy theo nhu cầu
+        // Ở đây là xóa toàn bộ item của mã đó khỏi giỏ
+        cart = cart.filter(itemId => itemId != id);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+      }
+
+      function clearCart() {
+        if (confirm("Bạn muốn xóa toàn bộ giỏ hàng?")) {
+          localStorage.removeItem("cart");
+          cart = [];
+          renderCart();
+        }
+      }
+
+      async function submitOrder() {
+        const form = document.getElementById("checkoutForm");
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        if (cart.length === 0) {
+          alert("Giỏ hàng trống!");
+          return;
+        }
+
+        const formData = new FormData(form);
+        const customerInfo = Object.fromEntries(formData.entries());
+
+        const orderData = {
+          customer: customerInfo,
+          items: cart,
+          total: document.getElementById("totalOrder").innerText,
+          status: "Pending",
+        };
+
+        try {
+          const response = await fetch("save_order.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(orderData),
+          });
+
+          if (response.ok) {
+            alert("Đặt hàng thành công! Cảm ơn bạn đã ủng hộ.");
+            localStorage.removeItem("cart");
+            window.location.href = "index.html";
+          } else {
+            alert("Có lỗi xảy ra khi lưu đơn hàng.");
+          }
+        } catch (error) {
+          alert("Có lỗi xảy ra khi kết nối máy chủ.");
+        }
+      }
+
+      init();
+    </script>
+  </body>
+</html>

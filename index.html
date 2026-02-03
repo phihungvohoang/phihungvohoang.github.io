@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hazel Shop - Hot Wheels Collections</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      /* ... DU DI ME MAY ... */
+      :root {
+        --hw-red: #e62117;
+      }
+      .navbar-brand {
+        letter-spacing: 1px;
+      }
+      .product-card {
+        transition: all 0.3s ease;
+        border: none !important;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+      }
+      .img-container {
+        background: #fff;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 10px;
+      }
+      .product-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.4s ease;
+      }
+      .product-card:hover img {
+        transform: scale(1.08);
+      }
+      .lazyload,
+      .lazyloading {
+        opacity: 0;
+      }
+      .lazyloaded {
+        opacity: 1;
+        transition: opacity 0.3s;
+      }
+      .badge-tag {
+        font-size: 0.65rem;
+        font-weight: 500;
+      }
+      .price-text {
+        color: var(--hw-red);
+        font-size: 1.1rem;
+      }
+      .floating-cart {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--hw-red);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(230, 33, 23, 0.4);
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .floating-cart:hover {
+        transform: scale(1.1);
+        color: white;
+      }
+      .cart-count-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #212529;
+        color: white;
+        border-radius: 50%;
+        padding: 4px 8px;
+        font-size: 0.75rem;
+        border: 2px solid white;
+      }
+      .text-yellow {
+        color: black !important;
+        background-color: #ffcc00 !important;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold text-white" href="index.html"
+          >HAZEL <span class="text-yellow">SHOP</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown" id="filterType"></li>
+            <li class="nav-item dropdown" id="filterCategory"></li>
+            <li class="nav-item dropdown" id="filterColor"></li>
+            <li class="nav-item dropdown" id="filterBrand"></li>
+          </ul>
+          <div class="d-flex flex-column flex-md-row gap-2">
+            <select class="form-select form-select-sm w-auto" id="sortOrder">
+              <option value="random">Sắp xếp: Ngẫu nhiên</option>
+              <option value="asc">Giá: Thấp đến Cao</option>
+              <option value="desc">Giá: Cao đến Thấp</option>
+            </select>
+            <div class="input-group input-group-sm">
+              <span class="input-group-text bg-white border-end-0"
+                ><i class="fa fa-search text-muted"></i
+              ></span>
+              <input
+                class="form-control border-start-0"
+                type="search"
+                id="searchInput"
+                placeholder="Tìm tên, mô tả, tag..."
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-4">
+      <div class="row g-3" id="productGrid">
+        <div class="text-center py-5">
+          <div class="spinner-border text-danger" role="status"></div>
+        </div>
+      </div>
+    </div>
+
+    <a href="checkout.html" class="floating-cart">
+      <i class="fa fa-shopping-cart fs-4"></i>
+      <span class="cart-count-badge" id="cartCount">0</span>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script>
+    <script>
+      let currentSearchKeyword = "";
+      let products = [];
+      let filters = {
+        type: "All",
+        category: "All",
+        color: "All",
+        brand: "All",
+      };
+
+      fetch("https://web.kcnvietnam.com/it-asset/api/products.php")
+        .then(res => res.json())
+        .then(data => {
+          products = data.sort(() => Math.random() - 0.5);
+
+          // --- LOGIC MỚI: Đọc từ khóa từ URL ---
+          const urlParams = new URLSearchParams(window.location.search);
+          const searchKeyword = urlParams.get("s");
+
+          if (searchKeyword) {
+            currentSearchKeyword = searchKeyword.trim().toLowerCase();
+            document.getElementById("searchInput").value = searchKeyword;
+          }
+          // ---------------------------------------
+
+          renderFilters(data);
+          applyFiltersAndSort();
+          updateCartCount();
+        })
+        .catch(err => {
+          document.getElementById("productGrid").innerHTML =
+            `<div class="alert alert-warning text-center">Lỗi tải dữ liệu.</div>`;
+        });
+
+      function renderFilters(data) {
+        const createDropdown = (id, label, key) => {
+          const values = ["All", ...new Set(data.map(p => p.tag[key]))];
+          document.getElementById(id).innerHTML = `
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">${label}</a>
+            <ul class="dropdown-menu">
+              ${values.map(v => `<li><a class="dropdown-item ${filters[key] === v ? "active" : ""}" href="javascript:void(0)" onclick="setFilter('${key}', '${v}')">${v}</a></li>`).join("")}
+            </ul>`;
+        };
+        createDropdown("filterType", "Phân loại", "type");
+        createDropdown("filterCategory", "Loại xe", "category");
+        createDropdown("filterColor", "Màu sắc", "color");
+        createDropdown("filterBrand", "Thương hiệu", "brand");
+      }
+
+      function setFilter(key, value) {
+        filters[key] = value;
+        renderFilters(products);
+        applyFiltersAndSort();
+      }
+
+      function applyFiltersAndSort() {
+        let result = products.filter(p => {
+          const matchType =
+            filters.type === "All" || p.tag.type === filters.type;
+          const matchCat =
+            filters.category === "All" || p.tag.category === filters.category;
+          const matchCol =
+            filters.color === "All" || p.tag.color === filters.color;
+          const matchBrand =
+            filters.brand === "All" || p.tag.brand === filters.brand;
+          const keyword = currentSearchKeyword;
+
+          // Kiểm tra logic tìm kiếm trong tên, mô tả và toàn bộ tags
+          const matchSearch =
+            p.name.toLowerCase().includes(keyword) ||
+            p.description.toLowerCase().includes(keyword) ||
+            Object.values(p.tag).some(v =>
+              String(v).toLowerCase().includes(keyword),
+            );
+
+          return matchType && matchCat && matchCol && matchBrand && matchSearch;
+        });
+
+        const sort = document.getElementById("sortOrder").value;
+        if (sort === "asc") result.sort((a, b) => a.price - b.price);
+        else if (sort === "desc") result.sort((a, b) => b.price - a.price);
+
+        renderProducts(result);
+      }
+
+      function renderProducts(dataList) {
+        const grid = document.getElementById("productGrid");
+        if (!dataList || dataList.length === 0) {
+          grid.innerHTML = `<div class="col-12 text-center py-5"><h3 class="text-muted">Không tìm thấy sản phẩm!</h3></div>`;
+          return;
+        }
+
+        grid.innerHTML = dataList
+          .map(p => {
+            const isOutOfStock = parseInt(p.qty) <= 0;
+            const displayPrice =
+              p.price && parseInt(p.price) > 0
+                ? `${Number(p.price).toLocaleString()}đ`
+                : "Liên hệ";
+
+            return `
+            <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <div class="card h-100 product-card shadow-sm border-0 ${isOutOfStock ? "opacity-75" : ""}">
+                    <div class="img-container position-relative">
+                        <a href="details.html?sku=${p.id}" class="w-100 h-100 d-block">
+                            <img data-src="${p.img1}" class="lazyload shadow-sm" style="filter: ${isOutOfStock ? "grayscale(1)" : "none"}" alt="${p.name}">
+                        </a>
+                        ${isOutOfStock ? '<span class="position-absolute top-0 start-0 bg-dark text-white p-1 small" style="font-size:0.6rem">HẾT HÀNG</span>' : ""}
+                    </div>
+                    <div class="card-body p-3 d-flex flex-column">
+                        <div class="mb-2">
+                            <span class="badge rounded-pill bg-light text-dark border badge-tag">${p.tag.type}</span>
+                            <span class="badge rounded-pill bg-light text-dark border badge-tag">${p.tag.brand}</span>
+                            ${p.tag.color ? `<span class="badge rounded-pill bg-light text-dark border badge-tag" style="background-color: ${p.tag.color} !important; color: white !important;">${p.tag.color}</span>` : ""}
+                        </div>
+                        <h6 class="card-title text-truncate mb-2" title="${p.name}">
+                            <a href="details.html?sku=${p.id}" class="text-decoration-none text-dark fw-bold small">${p.name}</a>
+                        </h6>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="price-text fw-bold text-danger">${displayPrice}</span>
+                            ${
+                              isOutOfStock
+                                ? `
+                                <button class="btn btn-sm btn-outline-secondary rounded-circle" disabled><i class="fa fa-ban"></i></button>
+                            `
+                                : `
+                                <button onclick="quickAdd('${p.id}')" class="btn btn-sm btn-outline-danger rounded-circle"><i class="fa fa-plus"></i></button>
+                            `
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+          })
+          .join("");
+      }
+
+      function quickAdd(id) {
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        cart.push(id);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+        const cartBtn = document.querySelector(".floating-cart");
+        cartBtn.style.transform = "scale(1.2)";
+        setTimeout(() => (cartBtn.style.transform = "scale(1)"), 200);
+      }
+
+      function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        document.getElementById("cartCount").innerText = cart.length;
+      }
+
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", function () {
+          currentSearchKeyword = this.value.trim().toLowerCase();
+
+          const url = new URL(window.location);
+          if (currentSearchKeyword) {
+            url.searchParams.set("s", this.value.trim());
+          } else {
+            url.searchParams.delete("s");
+          }
+          window.history.replaceState({}, "", url);
+
+          applyFiltersAndSort();
+        });
+
+      document
+        .getElementById("sortOrder")
+        .addEventListener("change", applyFiltersAndSort);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
