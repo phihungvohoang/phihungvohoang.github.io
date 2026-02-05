@@ -13,6 +13,33 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="icon" href="./images/s-hunt.png" type="image/png" />
+    <meta
+      property="og:title"
+      content="Chi tiết sản phẩm - Hazel Shop"
+      id="ogTitle"
+    />
+    <meta
+      property="og:description"
+      content="Xe Hot Wheels chính hãng tại Hazel Shop"
+      id="ogDesc"
+    />
+    <meta property="og:image" content="" id="ogImage" />
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content="" id="ogUrl" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Chi tiết sản phẩm - Hazel Shop"
+      id="twTitle"
+    />
+    <meta
+      name="twitter:description"
+      content="Xe Hot Wheels chính hãng tại Hazel Shop"
+      id="twDesc"
+    />
+    <meta name="twitter:image" content="" id="twImage" />
+
     <style>
       :root {
         --hw-red: #e62117;
@@ -111,6 +138,29 @@
         .then(data => {
           // Lưu ý: SKU trong JSON mới là số, trong URL là chuỗi nên dùng == hoặc ép kiểu
           const product = data.find(p => p.id == sku);
+          // ====== SEO DYNAMIC META ======
+          if (product.img1) {
+            let imgUrl = product.img1;
+            if (!imgUrl.startsWith("http")) {
+              imgUrl = location.origin + "/" + imgUrl.replace(/^\.?\//, "");
+            }
+
+            document.getElementById("ogImage").setAttribute("content", imgUrl);
+            document.getElementById("twImage").setAttribute("content", imgUrl);
+          }
+
+          const pageUrl = window.location.href;
+          document.getElementById("ogUrl").setAttribute("content", pageUrl);
+
+          const title = product.name + " | Hazel Shop Hot Wheels";
+          document.title = title;
+          document.getElementById("ogTitle").setAttribute("content", title);
+          document.getElementById("twTitle").setAttribute("content", title);
+
+          const desc = `Mua ${product.name} chính hãng tại Hazel Shop. Giá tốt cho dân sưu tầm Hot Wheels.`;
+          document.getElementById("ogDesc").setAttribute("content", desc);
+          document.getElementById("twDesc").setAttribute("content", desc);
+
           if (!product) {
             document.getElementById("productDetail").innerHTML =
               `<h3 class="text-center py-5">Sản phẩm không tồn tại!</h3>`;
@@ -139,7 +189,11 @@
 
         detailDiv.innerHTML = `
             <div class="col-md-6 mb-4 text-center">
-                <img src="${p.img1}" id="mainImg" class="img-fluid border mb-3 shadow-sm">
+                <img src="${p.img1}" 
+                id="mainImg" 
+                class="img-fluid border mb-3 shadow-sm"
+                alt="Hot Wheels ${p.name} chính hãng tại Hazel Shop"
+                title="${p.name} - Xe Hot Wheels sưu tầm">
                 <div class="d-flex gap-2 overflow-auto justify-content-center pb-2">
                     ${images
                       .map(
@@ -197,7 +251,8 @@
             <div class="col">
                 <div class="card h-100 shadow-sm border-0 product-suggest-card">
                     <a href="details.html?sku=${p.id}" class="overflow-hidden rounded-top bg-white text-center">
-                        <img data-src="${p.img1}" class="card-img-top lazyload w-100" style="object-fit: contain; height: 180px;" alt="${p.name}">
+                        <img data-src="${p.img1}" class="card-img-top lazyload w-100" style="object-fit: contain; height: 180px;"
+                        alt="Hot Wheels ${p.name}" title="${p.name}">
                     </a>
                     <div class="card-body p-2 text-center">
                         <small class="text-muted d-block mb-1">${p.tag.type} ${p.tag.color ? "| " + p.tag.color : ""}</small>
