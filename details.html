@@ -136,15 +136,21 @@
       fetch("https://web.kcnvietnam.com/it-asset/api/products.php")
         .then(res => res.json())
         .then(data => {
-          // Lưu ý: SKU trong JSON mới là số, trong URL là chuỗi nên dùng == hoặc ép kiểu
           const product = data.find(p => p.id == sku);
+
+          // ❗ KIỂM TRA TRƯỚC
+          if (!product) {
+            document.getElementById("productDetail").innerHTML =
+              `<h3 class="text-center py-5">Sản phẩm không tồn tại!</h3>`;
+            return;
+          }
+
           // ====== SEO DYNAMIC META ======
           if (product.img1) {
             let imgUrl = product.img1;
             if (!imgUrl.startsWith("http")) {
               imgUrl = location.origin + "/" + imgUrl.replace(/^\.?\//, "");
             }
-
             document.getElementById("ogImage").setAttribute("content", imgUrl);
             document.getElementById("twImage").setAttribute("content", imgUrl);
           }
@@ -161,15 +167,8 @@
           document.getElementById("ogDesc").setAttribute("content", desc);
           document.getElementById("twDesc").setAttribute("content", desc);
 
-          if (!product) {
-            document.getElementById("productDetail").innerHTML =
-              `<h3 class="text-center py-5">Sản phẩm không tồn tại!</h3>`;
-            return;
-          }
-
           renderMainProduct(product);
 
-          // Logic gợi ý: Lọc các xe cùng Type hoặc cùng Color (trừ chính nó)
           const suggested = data.filter(
             item =>
               item.id != product.id &&

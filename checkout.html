@@ -255,6 +255,7 @@
 
       async function submitOrder() {
         const form = document.getElementById("checkoutForm");
+
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
@@ -265,18 +266,56 @@
           return;
         }
 
-        const formData = new FormData(form);
-        const customerInfo = Object.fromEntries(formData.entries());
-
-        const orderData = {
-          customer: customerInfo,
-          items: cart,
-          total: document.getElementById("totalOrder").innerText,
-          status: "Pending",
-        };
-
         try {
-          const response = await fetch(
+          // 🔍 STEP 1: kiểm tra giá & tồn kho
+          // 🔍 STEP 1: kiểm tra giá & tồn kho
+          const counts = {};
+          cart.forEach(id => {
+            counts[id] = (counts[id] || 0) + 1;
+          });
+
+          const items = Object.keys(counts).map(id => ({
+            id: id,
+            qty: counts[id],
+          }));
+
+          const checkRes = await fetch(
+            "https://web.kcnvietnam.com/it-asset/api/check_cart.php",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                items: items,
+              }),
+            },
+          );
+
+          const checkData = await checkRes.json();
+
+          if (!checkData.ok) {
+            alert(checkData.message);
+            return;
+          }
+
+          // 🔁 cập nhật lại UI theo giá mới
+          document.getElementById("subtotal").innerText =
+            checkData.subtotal.toLocaleString() + "đ";
+          document.getElementById("totalOrder").innerText =
+            checkData.grandTotal.toLocaleString() + "đ";
+
+          // STEP 2: lưu đơn hàng
+          const formData = new FormData(form);
+          const customerInfo = Object.fromEntries(formData.entries());
+
+          const orderData = {
+            customer: customerInfo,
+            items: checkData.items,
+            total: checkData.grandTotal,
+            status: "Pending",
+            created_at: new Date().toISOString(),
+          };
+
+          const saveRes = await fetch(
             "https://web.kcnvietnam.com/it-asset/api/save_order.php",
             {
               method: "POST",
@@ -285,15 +324,17 @@
             },
           );
 
-          if (response.ok) {
-            alert("Đặt hàng thành công! Cảm ơn bạn đã ủng hộ.");
-            localStorage.removeItem("cart");
-            window.location.href = "index.html";
-          } else {
-            alert("Có lỗi xảy ra khi lưu đơn hàng.");
+          if (!saveRes.ok) {
+            alert("Lỗi lưu đơn hàng!");
+            return;
           }
-        } catch (error) {
-          alert("Có lỗi xảy ra khi kết nối máy chủ.");
+
+          alert("🎉 Đặt hàng thành công!");
+          localStorage.removeItem("cart");
+          window.location.href = "index.html";
+        } catch (err) {
+          console.error(err);
+          alert("Lỗi kết nối máy chủ!");
         }
       }
 
