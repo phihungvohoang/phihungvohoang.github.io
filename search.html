@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hot Wheels Hub - Pro Scanner</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --main: #ffcc00;
+        --bg: #0b0b0b;
+        --card: #1a1a1a;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: #eee;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1600px;
+        margin: auto;
+      }
+
+      /* Loading Overlay */
+      #loader {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 999;
+        display: none;
+        background: var(--main);
+        color: #000;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .header-panel {
+        background: var(--card);
+        padding: 25px;
+        border-radius: 15px;
+        border: 1px solid #333;
+        margin-bottom: 25px;
+      }
+      h1 {
+        margin: 0;
+        color: var(--main);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+      }
+
+      /* Custom DataTables Style */
+      .dataTables_wrapper {
+        background: var(--card);
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid #333;
+      }
+      table.dataTable {
+        border-bottom: none !important;
+      }
+      table.dataTable tbody tr {
+        background-color: transparent !important;
+        color: #eee;
+        border-bottom: 1px solid #222;
+      }
+      table.dataTable tbody tr:hover {
+        background-color: #252525 !important;
+      }
+      .dataTables_filter input {
+        background: #222 !important;
+        border: 1px solid #444 !important;
+        color: #fff !important;
+        border-radius: 8px;
+        padding: 8px 15px !important;
+        margin-bottom: 15px;
+        width: 300px !important;
+      }
+      .dataTables_length select {
+        background: #222 !important;
+        color: #fff !important;
+        border-radius: 5px;
+      }
+
+      /* Grid in Table Cell */
+      .prod-cell {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 5px 0;
+      }
+      .prod-img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        background: #fff;
+        border-radius: 8px;
+        padding: 5px;
+      }
+      .badge {
+        font-size: 10px;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .site-myk {
+        background: #ed1c24;
+        color: #fff;
+      }
+      .site-hob {
+        background: #00aeef;
+        color: #fff;
+      }
+      .price {
+        color: var(--main);
+        font-weight: 800;
+        font-size: 16px;
+      }
+      .btn-view {
+        background: #333;
+        color: #fff;
+        padding: 5px 12px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 12px;
+        transition: 0.3s;
+      }
+      .btn-view:hover {
+        background: var(--main);
+        color: #000;
+      }
+      .out-of-stock {
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader">Đang quét dữ liệu... <span id="progress">0</span>%</div>
+
+    <div class="container">
+      <div class="header-panel">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <h1>⚡ Hot Wheels Pro Scanner v13</h1>
+          <button
+            onclick="fetchAllData()"
+            id="btn-sync"
+            style="
+              background: var(--main);
+              border: none;
+              padding: 10px 20px;
+              border-radius: 8px;
+              font-weight: bold;
+              cursor: pointer;
+            "
+          >
+            🔄 ĐỒNG BỘ DỮ LIỆU
+          </button>
+        </div>
+        <p style="color: #666; margin-top: 10px">
+          Tự động lấy 1000+ sản phẩm mới nhất từ MyKingdom & Hobiverse
+        </p>
+      </div>
+
+      <table id="hwTable" class="display responsive nowrap" style="width: 100%">
+        <thead>
+          <tr>
+            <th>Sản phẩm</th>
+            <th>Giá</th>
+            <th>Nguồn</th>
+            <th>Trạng thái</th>
+            <th>Ngày đăng (ID)</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+    <script>
+      // Khởi tạo bảng với ID chính xác
+      let table = $("#hwTable").DataTable({
+        order: [[4, "desc"]], // Cập nhật lại index cột ID (cột thứ 5 là index 4)
+        pageLength: 10,
+        responsive: true,
+        language: {
+          search: "🔍 Tìm nhanh xe/mã SKU:",
+          lengthMenu: "Hiện _MENU_ xe",
+          info: "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ xe",
+          paginate: { next: "Sau", previous: "Trước" },
+        },
+      });
+
+      const sites = [
+        { name: "MyKingdom", domain: "www.mykingdom.com.vn" },
+        { name: "Hobiverse", domain: "hobiverse.com.vn" },
+      ];
+
+      async function fetchFromSite(site, page) {
+        // Đảm bảo đường dẫn này đúng với file php của bạn
+        const proxyUrl = `https://tracking.kcnvietnam.com/api/api_proxy.php?domain=${site.domain}&page=${page}`;
+        try {
+          const response = await fetch(proxyUrl);
+          const data = await response.json();
+          // Quan trọng: Shopify trả về { products: [...] }
+          return data.products || [];
+        } catch (e) {
+          console.error("Lỗi fetch:", e);
+          return [];
+        }
+      }
+
+      async function fetchAllData() {
+        $("#loader").fadeIn();
+        $("#btn-sync").attr("disabled", true).text("ĐANG QUÉT...");
+
+        // Xóa trắng bảng trước khi nạp mới
+        table.clear();
+
+        const maxPages = 4;
+        let totalRequests = maxPages * sites.length;
+        let completedRequests = 0;
+
+        for (let p = 1; p <= maxPages; p++) {
+          for (const site of sites) {
+            const products = await fetchFromSite(site, p);
+
+            if (products && products.length > 0) {
+              products.forEach(item => {
+                // Lọc sản phẩm Hot Wheels
+                if (item.title.toLowerCase().includes("hot wheels")) {
+                  const variant = item.variants[0];
+                  const isAvailable = variant.available;
+                  const price =
+                    new Intl.NumberFormat("vi-VN").format(variant.price) + "đ";
+                  const img = item.images[0] ? item.images[0].src : "";
+
+                  // Thêm dòng vào DataTable
+                  table.row.add([
+                    `<div class="prod-cell ${!isAvailable ? "out-of-stock" : ""}">
+                                <img src="${img}" class="prod-img" loading="lazy">
+                                <b>${item.title}</b>
+                            </div>`,
+                    `<span class="price">${price}</span>`,
+                    `<span class="badge site-${site.name === "MyKingdom" ? "myk" : "hob"}">${site.name}</span>`,
+                    `<span style="color:${isAvailable ? "#28a745" : "#ff4444"}">● ${isAvailable ? "Còn hàng" : "Hết hàng"}</span>`,
+                    item.id,
+                    `<a href="https://${site.domain}/products/${item.handle}" target="_blank" class="btn-view">XEM WEB</a>`,
+                  ]);
+                }
+              });
+            }
+
+            completedRequests++;
+            $("#progress").text(
+              Math.round((completedRequests / totalRequests) * 100),
+            );
+            // Vẽ lại bảng sau mỗi đợt dữ liệu về
+            table.draw(false);
+          }
+        }
+
+        $("#loader").fadeOut();
+        $("#btn-sync").attr("disabled", false).text("🔄 ĐỒNG BỘ DỮ LIỆU");
+      }
+
+      $(document).ready(function () {
+        fetchAllData();
+      });
+    </script>
+  </body>
+</html>
