@@ -110,6 +110,42 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label small fw-bold"
+                    >Phương thức thanh toán</label
+                  >
+                  <div class="card p-3 bg-light border-0">
+                    <div class="form-check mb-2">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="payment_method"
+                        id="payFull"
+                        value="Chuyển khoản Full"
+                        checked
+                        onchange="updatePaymentInfo()"
+                      />
+                      <label class="form-check-label small" for="payFull">
+                        <strong>Chuyển khoản Full</strong><br />
+                        Thanh toán 100% tiền hàng + ship.
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="payment_method"
+                        id="payCOD"
+                        value="COD"
+                        onchange="updatePaymentInfo()"
+                      />
+                      <label class="form-check-label small" for="payCOD">
+                        <strong>COD (Cọc trước 65k)</strong><br />
+                        Gồm 50k cọc giữ hàng và 15k phí ship.
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label small fw-bold"
                     >Địa chỉ nhận hàng</label
                   >
                   <textarea
@@ -138,6 +174,19 @@
         <div class="col-lg-5">
           <div class="card shadow-sm border-0 summary-card">
             <div class="card-body">
+              <div id="qrArea" class="text-center mt-3 d-none">
+                <div class="alert alert-warning small py-2 mb-2">
+                  <i class="fa fa-info-circle"></i> Vui lòng quét mã QR để thanh
+                  toán
+                  <strong id="qrAmountLabel">0đ</strong>
+                </div>
+                <img
+                  id="qrImage"
+                  src=""
+                  class="img-fluid border rounded shadow-sm"
+                  style="max-width: 250px"
+                />
+              </div>
               <h5 class="fw-bold mb-4">Tổng cộng</h5>
               <div class="d-flex justify-content-between mb-2">
                 <span>Tạm tính</span>
@@ -173,7 +222,12 @@
     <script>
       let allProducts = [];
       let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const shippingFee = 15000;
+      let currentSubtotal = 0;
 
+      /**
+       * Khởi tạo dữ liệu khi trang web tải xong
+       */
       async function init() {
         try {
           const response = await fetch(
@@ -181,23 +235,36 @@
           );
           allProducts = await response.json();
           renderCart();
+
+          // Lắng nghe sự kiện thay đổi SĐT để cập nhật nội dung chuyển khoản trên QR
+          document
+            .querySelector('input[name="phone"]')
+            .addEventListener("input", updatePaymentInfo);
         } catch (error) {
           console.error("Lỗi tải dữ liệu sản phẩm:", error);
         }
       }
 
+      /**
+       * Hiển thị danh sách giỏ hàng và tính toán tiền
+       */
       function renderCart() {
         const container = document.getElementById("cartItems");
         const cartCount = document.getElementById("cartCount");
-        const shippingFee = 15000;
         const subtotalEl = document.getElementById("subtotal");
         const totalOrderEl = document.getElementById("totalOrder");
 
         if (cart.length === 0) {
-          container.innerHTML = `<div class="text-center py-5"><p class="text-muted">Giỏ hàng trống.</p><a href="index.html" class="btn btn-sm btn-danger">Mua sắm ngay</a></div>`;
+          container.innerHTML = `
+            <div class="text-center py-5">
+                <p class="text-muted">Giỏ hàng trống.</p>
+                <a href="index.html" class="btn btn-sm btn-danger">Mua sắm ngay</a>
+            </div>`;
           cartCount.innerText = 0;
           subtotalEl.innerText = "0đ";
           totalOrderEl.innerText = "0đ";
+          currentSubtotal = 0;
+          updatePaymentInfo();
           return;
         }
 
@@ -208,7 +275,6 @@
         let html = '<ul class="list-group list-group-flush">';
 
         for (const id in counts) {
-          // So khớp id (ép kiểu về string/number tùy data)
           const product = allProducts.find(p => p.id == id);
           if (product) {
             const itemTotal = product.price * counts[id];
@@ -231,20 +297,66 @@
         container.innerHTML = html;
         cartCount.innerText = cart.length;
 
-        // Cập nhật hiển thị tiền
+        currentSubtotal = subtotal;
         subtotalEl.innerText = subtotal.toLocaleString() + "đ";
         totalOrderEl.innerText =
           (subtotal + shippingFee).toLocaleString() + "đ";
+
+        // Cập nhật lại QR code dựa trên tổng tiền mới
+        updatePaymentInfo();
       }
 
+      /**
+       * Xử lý thay đổi phương thức thanh toán và hiển thị QR VietQR
+       */
+      function updatePaymentInfo() {
+        const paymentMethodEl = document.querySelector(
+          'input[name="payment_method"]:checked',
+        );
+        if (!paymentMethodEl) return;
+
+        const paymentMethod = paymentMethodEl.value;
+        const qrArea = document.getElementById("qrArea");
+        const qrImage = document.getElementById("qrImage");
+        const qrAmountLabel = document.getElementById("qrAmountLabel");
+        const qrNote = document.getElementById("qrNote");
+
+        // Lấy SĐT khách hàng để làm nội dung chuyển khoản
+        const phoneInput =
+          document.querySelector('input[name="phone"]').value.trim() || "SDT";
+        const totalAmount = currentSubtotal + shippingFee;
+
+        let amountToPay = 0;
+        if (paymentMethod === "Chuyển khoản Full") {
+          amountToPay = totalAmount;
+        } else if (paymentMethod === "COD") {
+          amountToPay = 65000; // 50k cọc + 15k ship
+        }
+
+        if (amountToPay > 0 && currentSubtotal > 0) {
+          qrArea.classList.remove("d-none");
+          qrAmountLabel.innerText = amountToPay.toLocaleString() + "đ";
+          // Tạo link VietQR động
+          // VCB: Vietcombank, HUNG3979: Số tài khoản
+          const qrUrl = `https://img.vietqr.io/image/VCB-HUNG3979-compact2.png?amount=${amountToPay}&accountName=Hazel%20Shop`;
+          qrImage.src = qrUrl;
+        } else {
+          qrArea.classList.add("d-none");
+        }
+      }
+
+      /**
+       * Xóa 1 sản phẩm khỏi giỏ hàng
+       */
       function removeFromCart(id) {
-        // Xóa tất cả các item có cùng ID này hoặc chỉ xóa 1 tùy theo nhu cầu
-        // Ở đây là xóa toàn bộ item của mã đó khỏi giỏ
         cart = cart.filter(itemId => itemId != id);
         localStorage.setItem("cart", JSON.stringify(cart));
         renderCart();
       }
 
+      /**
+       * Xóa toàn bộ giỏ hàng
+       */
       function clearCart() {
         if (confirm("Bạn muốn xóa toàn bộ giỏ hàng?")) {
           localStorage.removeItem("cart");
@@ -253,6 +365,9 @@
         }
       }
 
+      /**
+       * Xử lý gửi đơn hàng lên Server
+       */
       async function submitOrder() {
         const form = document.getElementById("checkoutForm");
 
@@ -262,19 +377,18 @@
         }
 
         if (cart.length === 0) {
-          alert("Giỏ hàng trống!");
+          alert("Giỏ hàng đang trống!");
           return;
         }
 
         try {
-          // 🔍 STEP 1: kiểm tra giá & tồn kho
-          // 🔍 STEP 1: kiểm tra giá & tồn kho
+          // BƯỚC 1: Kiểm tra tồn kho và giá thực tế qua API
           const counts = {};
           cart.forEach(id => {
             counts[id] = (counts[id] || 0) + 1;
           });
 
-          const items = Object.keys(counts).map(id => ({
+          const itemsToCheck = Object.keys(counts).map(id => ({
             id: id,
             qty: counts[id],
           }));
@@ -284,37 +398,33 @@
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                items: items,
-              }),
+              body: JSON.stringify({ items: itemsToCheck }),
             },
           );
 
           const checkData = await checkRes.json();
 
           if (!checkData.ok) {
-            alert(checkData.message);
+            alert("⚠️ " + checkData.message);
             return;
           }
 
-          // 🔁 cập nhật lại UI theo giá mới
-          document.getElementById("subtotal").innerText =
-            checkData.subtotal.toLocaleString() + "đ";
-          document.getElementById("totalOrder").innerText =
-            checkData.grandTotal.toLocaleString() + "đ";
-
-          // STEP 2: lưu đơn hàng
+          // BƯỚC 2: Gom dữ liệu khách hàng và đơn hàng
           const formData = new FormData(form);
           const customerInfo = Object.fromEntries(formData.entries());
 
           const orderData = {
             customer: customerInfo,
-            items: checkData.items,
+            items: cart, // Danh sách SKU
+            subtotal: checkData.subtotal,
+            shipping_fee: shippingFee,
             total: checkData.grandTotal,
+            payment_method: customerInfo.payment_method,
             status: "Pending",
-            created_at: new Date().toISOString(),
+            created_at: new Date().toLocaleString("vi-VN"),
           };
 
+          // BƯỚC 3: Lưu đơn hàng vào database/file JSON
           const saveRes = await fetch(
             "https://web.kcnvietnam.com/it-asset/api/save_order.php",
             {
@@ -324,20 +434,20 @@
             },
           );
 
-          if (!saveRes.ok) {
-            alert("Lỗi lưu đơn hàng!");
-            return;
+          if (saveRes.ok) {
+            alert("🎉 Chúc mừng! Đơn hàng của bạn đã được tiếp nhận.");
+            localStorage.removeItem("cart");
+            window.location.href = "index.html";
+          } else {
+            alert("❌ Lỗi khi lưu đơn hàng. Vui lòng thử lại sau.");
           }
-
-          alert("🎉 Đặt hàng thành công!");
-          localStorage.removeItem("cart");
-          window.location.href = "index.html";
         } catch (err) {
           console.error(err);
-          alert("Lỗi kết nối máy chủ!");
+          alert("❌ Lỗi kết nối máy chủ! Vui lòng kiểm tra mạng.");
         }
       }
 
+      // Chạy khởi tạo khi load trang
       init();
     </script>
   </body>
