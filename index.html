@@ -205,6 +205,7 @@
           </ul>
           <div class="d-flex flex-column flex-md-row gap-2">
             <select class="form-select form-select-sm w-auto" id="sortOrder">
+              <option value="newst">Sắp xếp: Mới nhất</option>
               <option value="random">Sắp xếp: Ngẫu nhiên</option>
               <option value="asc">Giá: Thấp đến Cao</option>
               <option value="desc">Giá: Cao đến Thấp</option>
@@ -358,7 +359,9 @@
         });
 
         const sort = document.getElementById("sortOrder").value;
-        if (sort === "asc") result.sort((a, b) => a.price - b.price);
+        if (sort === "newest")
+          result.sort(() => new Date(b.created_at) - new Date(a.created_at));
+        else if (sort === "asc") result.sort((a, b) => a.price - b.price);
         else if (sort === "desc") result.sort((a, b) => b.price - a.price);
 
         renderProducts(result);
