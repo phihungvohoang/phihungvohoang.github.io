@@ -359,14 +359,26 @@
         });
 
         const sort = document.getElementById("sortOrder").value;
-        if (sort === "newest")
-          result.sort(() => new Date(b.created_at) - new Date(a.created_at));
-        else if (sort === "asc") result.sort((a, b) => a.price - b.price);
-        else if (sort === "desc") result.sort((a, b) => b.price - a.price);
+
+        if (sort === "newest") {
+          // Sửa lỗi: thêm tham số (a, b) vào hàm sort
+          result.sort((a, b) => {
+            // Ưu tiên sắp xếp theo trường 'id' (vì ID thường tăng dần theo thời gian)
+            // hoặc trường 'created_at' nếu JSON của bạn có trường đó
+            const dateA = a.created_at ? new Date(a.created_at) : a.id;
+            const dateB = b.created_at ? new Date(b.created_at) : b.id;
+            return dateB - dateA; // Mới nhất lên đầu
+          });
+        } else if (sort === "random") {
+          result.sort(() => Math.random() - 0.5);
+        } else if (sort === "asc") {
+          result.sort((a, b) => a.price - b.price);
+        } else if (sort === "desc") {
+          result.sort((a, b) => b.price - a.price);
+        }
 
         renderProducts(result);
       }
-
       function renderProducts(dataList) {
         const grid = document.getElementById("productGrid");
         if (!dataList || dataList.length === 0) {
