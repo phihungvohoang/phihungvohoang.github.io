@@ -112,6 +112,50 @@
         color: black !important;
         background-color: #ffcc00 !important;
       }
+      /* Bong bóng liên hệ */
+      .floating-contact {
+        position: fixed;
+        bottom: 100px; /* Nằm trên giỏ hàng (giỏ hàng là 30px) */
+        right: 30px;
+        z-index: 1000;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #0084ff; /* Màu xanh Messenger/Zalo */
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 132, 255, 0.4);
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .floating-contact:hover {
+        transform: scale(1.1);
+        color: white;
+      }
+      /* Hiệu ứng rung nhẹ để thu hút chú ý */
+      .floating-contact i {
+        animation: shake 2s infinite;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(15deg);
+        }
+        20% {
+          transform: rotate(-15deg);
+        }
+        30% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
     </style>
   </head>
   <body class="bg-light">
@@ -188,7 +232,14 @@
         </div>
       </div>
     </div>
-
+    <a
+      href="https://fb.com/izaass.anons"
+      target="_blank"
+      class="floating-contact"
+      title="Liên hệ Facebook"
+    >
+      <i class="fa-solid fa-comment-dots fs-4"></i>
+    </a>
     <a href="checkout.html" class="floating-cart">
       <i class="fa fa-shopping-cart fs-4"></i>
       <span class="cart-count-badge" id="cartCount">0</span>
