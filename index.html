@@ -399,7 +399,9 @@
             const displayPrice =
               p.price && parseInt(p.price) > 0
                 ? `${Number(p.price).toLocaleString()}đ`
-                : "Liên hệ";
+                : `<a href="https://fb.com/izaass.anons" target="_blank" class="btn btn-sm btn-primary w-100 fw-bold" style="font-size: 0.7rem;">
+                   <i class="fab fa-facebook-messenger me-1"></i> LIÊN HỆ
+                 </a>`;
 
             return `
                   <div class="col-6 col-md-4 col-lg-3 mb-4">
