@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="vi">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hot Wheels Hub - Pro Sale Scanner</title>
+
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+        <style>
+        :root {
+            --main: #ffcc00;
+            --bg: #0b0b0b;
+            --card: #1a1a1a;
+            --sale: #e74c3c;
+            --new: #2ecc71;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: #eee;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* Loading Overlay */
+        #loader {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            display: none;
+            background: var(--main);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-panel {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--main);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            font-size: 28px;
+        }
+
+        /* DataTables Customization */
+        .dataTables_wrapper {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        table.dataTable {
+            border-bottom: none !important;
+        }
+
+        table.dataTable tbody tr {
+            background-color: transparent !important;
+            color: #eee;
+            border-bottom: 1px solid #222;
+        }
+
+        table.dataTable tbody tr:hover {
+            background-color: #252525 !important;
+        }
+
+        .dataTables_filter input {
+            background: #222 !important;
+            border: 1px solid #444 !important;
+            color: #fff !important;
+            border-radius: 8px;
+            padding: 8px 15px !important;
+            width: 250px !important;
+        }
+
+        /* Product Cells */
+        .prod-cell {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .prod-img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 8px;
+            padding: 4px;
+            border: 1px solid #333;
+        }
+
+        /* Badges */
+        .badge-tag {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 800;
+            margin-right: 5px;
+            display: inline-block;
+        }
+
+        .tag-sale {
+            background: var(--sale);
+            color: #fff;
+        }
+
+        .tag-new {
+            background: var(--new);
+            color: #fff;
+        }
+
+        .site-label {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: #333;
+            color: #bbb;
+        }
+
+        .price-box {
+            line-height: 1.4;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #777;
+            font-size: 12px;
+        }
+
+        .price-current {
+            color: var(--main);
+            font-weight: 800;
+            font-size: 16px;
+            display: block;
+        }
+
+        .btn-sync {
+            background: var(--main);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-sync:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .btn-view {
+            background: #444;
+            color: #fff;
+            padding: 6px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .btn-view:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .stock-out {
+            opacity: 0.4;
+            filter: grayscale(1);
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div id="loader">⚡ <span id="status-text">Đang chuẩn bị...</span></div>
+
+        <div class="container">
+            <div class="header-panel">
+                <div>
+                    <h1>🔥 Hot Wheels Pro Scanner</h1>
+                    <p style="color: #888; margin: 5px 0 0 0">Tự động phát hiện Hàng mới & Deal giảm giá</p>
+                </div>
+                <button onclick="fetchAllData()" id="btn-sync" class="btn-sync">
+                    🔄 QUÉT DỮ LIỆU MỚI
+                </button>
+            </div>
+
+            <table id="hwTable" class="display responsive nowrap" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá niêm yết</th>
+                        <th>Nguồn</th>
+                        <th>Trạng thái</th>
+                        <th>Product ID</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
+        <script>
+        // Initialize DataTable
+        let table = $("#hwTable").DataTable({
+            order: [
+                [4, "desc"]
+            ], // Sort by Product ID
+            pageLength: 25,
+            responsive: true,
+            language: {
+                search: "🔍 Lọc xe:",
+                lengthMenu: "_MENU_ xe/trang",
+                info: "Hiển thị _TOTAL_ sản phẩm Hot Wheels",
+                paginate: {
+                    next: "→",
+                    previous: "←"
+                },
+            },
+        });
+
+        const sites = [{
+                name: "MyKingdom",
+                domain: "www.mykingdom.com.vn",
+                locale: "vi-VN",
+                currency: "đ"
+            },
+            {
+                name: "Hobiverse",
+                domain: "hobiverse.com.vn",
+                locale: "vi-VN",
+                currency: "đ"
+            },
+            {
+                name: "Mattel AU",
+                domain: "shop.mattel.com.au",
+                locale: "en-AU",
+                currency: "$"
+            },
+        ];
+
+        async function fetchAllData() {
+            $("#loader").fadeIn();
+            $("#btn-sync").attr("disabled", true).text("⏳ ĐANG QUÉT...");
+
+            table.clear(); // Clear existing rows
+
+            let totalScanned = 0;
+
+            for (const site of sites) {
+                $("#status-text").text(`Đang quét ${site.name}...`);
+
+                try {
+                    // Pointing to your api.php logic
+                    const response = await fetch(
+                        `https://tracking.kcnvietnam.com/api/api_2.php?domain=${site.domain}&page=1`);
+                    const data = await response.json();
+
+                    if (data.products && data.products.length > 0) {
+                        data.products.forEach(item => {
+                            const isAvailable = item.available;
+
+                            // Labels
+                            let badges = "";
+                            if (item.is_sale) badges += `<span class="badge-tag tag-sale">SALE</span>`;
+                            if (item.is_new) badges += `<span class="badge-tag tag-new">NEW</span>`;
+
+                            // Price Formatting
+                            const formatter = new Intl.NumberFormat(site.locale);
+                            const priceCurrent = formatter.format(item.price) + site.currency;
+
+                            let priceHtml = `<div class="price-box">`;
+                            if (item.is_sale) {
+                                const priceOld = formatter.format(item.compare_at_price) + site.currency;
+                                priceHtml += `<span class="price-old">${priceOld}</span>`;
+                            }
+                            priceHtml += `<span class="price-current">${priceCurrent}</span></div>`;
+
+                            // Add Row
+                            table.row.add([
+                                `<div class="prod-cell ${!isAvailable ? 'stock-out' : ''}">
+                    <img src="${item.image}" class="prod-img" onerror="this.src='https://placehold.co/100x100?text=No+Image'">
+                    <div>
+                        ${badges}<br>
+                        <b style="font-size:14px;">${item.title}</b>
+                    </div>
+                  </div>`,
+                                priceHtml,
+                                `<span class="site-label">${site.name}</span>`,
+                                `<span style="color:${isAvailable ? '#2ecc71' : '#e74c3c'}; font-size:12px; font-weight:bold;">
+                    ${isAvailable ? '● CÒN HÀNG' : '○ HẾT HÀNG'}
+                  </span>`,
+                                `<small style="color:#555">${item.id}</small>`,
+                                `<a href="https://${site.domain}/products/${item.handle}" target="_blank" class="btn-view">XEM CHI TIẾT</a>`
+                            ]);
+                            totalScanned++;
+                        });
+                    }
+                } catch (error) {
+                    console.error(`Error scanning ${site.name}:`, error);
+                }
+                table.draw(false);
+            }
+
+            $("#loader").fadeOut();
+            $("#btn-sync").attr("disabled", false).text("🔄 QUÉT DỮ LIỆU MỚI");
+        }
+
+        // Run on page load
+        $(document).ready(function() {
+            fetchAllData();
+        });
+        </script>
+    </body>
+
+</html>
