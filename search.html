@@ -191,7 +191,7 @@
             <th>Nguồn</th>
             <th>Trạng thái</th>
             <th>Ngày đăng (ID)</th>
-            <th>Thao tác</th>
+            <th>Thao tác</th><th>Thao tác</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -273,6 +273,7 @@
                     `<span style="color:${isAvailable ? "#28a745" : "#ff4444"}">● ${isAvailable ? "Còn hàng" : "Hết hàng"}</span>`,
                     item.id,
                     `<a href="https://${site.domain}/products/${item.handle}" target="_blank" class="btn-view">XEM WEB</a>`,
+                    `<a href="https://tracking.kcnvietnam.com/api/cron/cron.php?action=add_from_scan&url=https://${site.domain}/products/${item.handle}.js" target="_blank" class="btn-view">Tracking</a>`,
                   ]);
                   addedInThisPage++;
                   totalProductsFound++;
